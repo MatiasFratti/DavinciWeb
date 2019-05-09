@@ -39,9 +39,9 @@
                 <h3>{{titulo1}}</h3>
                 
                 <ul class="header-nav__list">
-                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
+                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>                   
                     <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
+                     <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
                     <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
                     <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
                 </ul>
@@ -79,7 +79,7 @@
 
     <!-- home
     ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/head/{{head}}" data-natural-width=2400 data-natural-height=1200 data-position-y=top>
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/head/{{head}}" data-natural-width=2400 data-position-y=top><!--data-natural-height=1800-->
 
         <div class="shadow-overlay"></div>
 
@@ -101,9 +101,9 @@
 
         </div> <!-- end home-content -->
 
-        <ul class="home-sidelinks">
-            <li><a class="smoothscroll" href="#about">About<span>{{about}}</span></a></li>
+        <ul class="home-sidelinks"> 
             <li><a class="smoothscroll" href="#works">Works<span>{{workstitulo}}</span></a></li>
+            <li><a class="smoothscroll" href="#about">About<span>{{about}}</span></a></li>
             <li><a class="smoothscroll" href="#services">Services<span>{{serviceTitulo}}</span></a></li>
             <li><a  class="smoothscroll" href="#contact">Contact<span>{{contactTitulo}}</span></a></li>
         </ul> <!-- end home-sidelinks -->
@@ -132,71 +132,7 @@
     </section> <!-- end s-home -->
 
 
-    <!-- about
-    ================================================== -->
-    <section id='about' class="s-about">
-
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">{{about}}</h3>
-                <h1 class="display-1">{{about2}}</h1>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row" data-aos="fade-up">
-            <div class="col-full">
-                <p class="lead">
-                {{aboutDesc}}
-                </p>
-            </div>
-        </div> <!-- end about-desc -->
-
-        {{!-- items about --}}
-        <div class="row">
-                
-            <div class="about-process process block-1-2 block-tab-full">
-
-                <div class="process__vline-left"></div>
-                <div class="process__vline-right"></div>
-
-                <div class="col-block process__col" data-item="1" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>{{aboutItem1}}</h4>
-
-                        <p>{{item1Desc}}</p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="2" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>{{aboutItem2}}</h4>
-
-                        <p>{{item2Desc}}</p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="3" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>{{aboutItem3}}</h4>
-
-                        <p>
-                        {{item3Desc}}
-                        </p>
-                    </div>
-                </div>
-                <div class="col-block process__col" data-item="4" data-aos="fade-up">
-                    <div class="process__text">
-                        <h4>{{aboutItem4}}</h4>
-
-                        <p>
-                        {{item4Desc}}
-                        </p>
-                    </div>
-                </div>
-
-            </div> <!-- end process -->
-
-        </div> <!-- end about-stats -->
-
-    </section> <!-- end s-about -->
+   
      <!-- works
     ================================================== -->
     <section id='works' class="s-works">
@@ -207,7 +143,11 @@
                 <h1 class="display-2">{{workDesc}}</h1>
             </div>
         </div> <!-- end section-header -->
-
+        <div class="row">
+                <div class="col-full testimonials-header">
+                    <h2 class="h1">Bodas</h2>
+                </div>
+            </div>
         <div class="row masonry-wrap">
             <div class="masonry">
 
@@ -394,12 +334,203 @@
 
             </div> <!-- end masonry -->
         </div> <!-- end masonry-wrap -->
+        <div class="row">
+                <div class="col-full testimonials-header">
+                    <h2 class="h1">Quinces</h2>
+                </div>
+            </div>
+        
+        <div class="row masonry-wrap">
+            <div class="masonry">
 
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-lamp.jpg" class="thumb-link" title="{{img_port6_title}}" data-size="1050x700">
+                                <img src="images/portfolio/lamp.jpg" 
+                                     srcset="images/portfolio/lamp.jpg 1x, images/portfolio/lamp@2x.jpg 2x" alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{img_port6_title}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                {{img_port6_cat}}
+                            </p>
+                        </div>
+
+                        <a href="https://{{img_port6_proj}}" class="item-folio__project-link" title="Project link">
+                            {{img_port6_proj}}
+                        </a>
+
+                        <div class="item-folio__caption">
+                            <p>{{img_port6_desc}}</p>
+                        </div>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-salad.jpg" class="thumb-link" title="{{img_port2_title}}" data-size="1050x700">
+                                <img src="images/portfolio/salad.jpg" 
+                                     srcset="images/portfolio/salad.jpg 1x, images/portfolio/salad@2x.jpg 2x" alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{img_port2_title}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                 {{img_port2_cat}}
+                            </p>
+                        </div>
+
+                        <a href="https://{{img_port2_proj}}" class="item-folio__project-link" title="Project link">
+                             {{img_port2_proj}}
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p> {{img_port2_desc}}</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" title=" {{img_port3_title}}" data-size="1050x700">
+                                <img src="images/portfolio/woodcraft.jpg"
+                                srcset="images/portfolio/woodcraft.jpg 1x, images/portfolio/woodcraft@2x.jpg 2x" alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{img_port3_title}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                {{img_port3_cat}}
+                            </p>
+                        </div>
+
+                        <a href="https://{{img_port3_proj}}" class="item-folio__project-link" title="Project link">
+                            {{img_port3_proj}}
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>{{img_port3_desc}}</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-liberty.jpg" class="thumb-link" title="{{img_port4_title}}" data-size="1050x700">
+                                <img src="images/portfolio/liberty.jpg"
+                                     srcset="images/portfolio/liberty.jpg 1x, images/portfolio/liberty@2x.jpg 2x" alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{img_port4_title}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                {{img_port4_cat}}
+                            </p>
+                        </div>
+
+                        <a href="https://{{img_port4_proj}}" class="item-folio__project-link" title="Project link">
+                            {{img_port4_proj}}
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>{{img_port4_desc}}</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-fuji.jpg" class="thumb-link" title="{{img_port1_title}}" data-size="1050x700">
+                                <img src="images/portfolio/fuji.jpg"
+                                     srcset="images/portfolio/fuji.jpg 1x, images/portfolio/fuji@2x.jpg 2x" alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{img_port1_title}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                {{img_port1_cat}}
+                            </p>
+                        </div>
+
+                        <a href="https://{{img_port1_title}}" class="item-folio__project-link" title="Project link">
+                            {{img_port1_proj}}
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>{{img_port1_desc}}</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick" data-aos="fade-up">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" title="{{img_port5_title}}" data-size="1050x700">
+                                <img src="images/portfolio/shutterbug.jpg"
+                                     srcset="images/portfolio/shutterbug.jpg 1x, images/portfolio/shutterbug@2x.jpg 2x" alt="">
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                {{img_port5_title}}
+                            </h3>
+                            <p class="item-folio__cat">
+                                {{img_port5_cat}}
+                            </p>
+                        </div>
+
+                        <a href="https://{{img_port5_proj}}" class="item-folio__project-link" title="Project link">
+                            {{img_port5_proj}}
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>{{img_port5_desc}}</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+            </div> <!-- end masonry -->
+        </div> <!-- end masonry-wrap -->
         <div class="testimonials-wrap" data-aos="fade-up">
 
             <div class="row">
                 <div class="col-full testimonials-header">
-                    <h2 class="h1">What Clients Are Saying.</h2>
+                    <h2 class="h1">Filmaciones</h2>
                 </div>
             </div>
 
@@ -408,9 +539,8 @@
                 <div class="col-full testimonials__slider">
 
                     <div class="testimonials__slide">
-                        <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonials__avatar">
-                        <p>Qui ipsam temporibus quisquam velMaiores eos cumque distinctio nam accusantium ipsum. 
-                        Laudantium quia consequatur molestias delectus culpa facere hic dolores aperiam. Accusantium quos qui praesentium corpori.</p>
+                        {{!-- <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonials__avatar"> --}}
+                        <iframe width="445" height="250" src="https://www.youtube.com/embed/SvbG0IApbtM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="testimonials__author">
                             Tim Cook
                             <span>CEO, Apple</span>
@@ -418,6 +548,14 @@
                     </div> <!-- end testimonials__slide -->
 
                     <div class="testimonials__slide">
+                        {{!-- <img src="images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar"> --}}
+                        <iframe width="445" height="250" src="https://www.youtube.com/embed/jSvGyiIp9u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                           <div class="testimonials__author">
+                            Sundar Pichai
+                            <span>CEO, Google</span>
+                        </div>
+                    </div> <!-- end testimonials__slide -->
+                    {{!-- <div class="testimonials__slide">
                         <img src="images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar">
                         <p>Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
                         Nisi eaque consequatur. Quasi voluptas eius distinctio. Atque eos maxime. Qui ipsam temporibus quisquam vel.</p>
@@ -425,13 +563,11 @@
                             Sundar Pichai
                             <span>CEO, Google</span>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div> <!-- end testimonials__slide --> --}}
 
                     <div class="testimonials__slide">
-                        <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
-                        <p>Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.  
-                        Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.</p>
-                        <div class="testimonials__author">
+                        <iframe width="445" height="250" src="https://www.youtube.com/embed/3mdN0H0FRhU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                           <div class="testimonials__author">
                             Satya Nadella
                             <span>CEO, Microsoft</span>
                         </div>
@@ -444,7 +580,71 @@
         </div> <!-- end testimonials-wrap -->
 
     </section> <!-- end s-works -->
+     <!-- about
+    ================================================== -->
+    <section id='about' class="s-about">
 
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">{{about}}</h3>
+                <h1 class="display-1">{{about2}}</h1>
+            </div>
+        </div> <!-- end section-header -->
+
+        <div class="row" data-aos="fade-up">
+            <div class="col-full">
+                <p class="lead">
+                {{aboutDesc}}
+                </p>
+            </div>
+        </div> <!-- end about-desc -->
+
+        {{!-- items about --}}
+        <div class="row">
+                
+            <div class="about-process process block-1-2 block-tab-full">
+
+                <div class="process__vline-left"></div>
+                <div class="process__vline-right"></div>
+
+                <div class="col-block process__col" data-item="1" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>{{aboutItem1}}</h4>
+
+                        <p>{{item1Desc}}</p>
+                    </div>
+                </div>
+                <div class="col-block process__col" data-item="2" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>{{aboutItem2}}</h4>
+
+                        <p>{{item2Desc}}</p>
+                    </div>
+                </div>
+                <div class="col-block process__col" data-item="3" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>{{aboutItem3}}</h4>
+
+                        <p>
+                        {{item3Desc}}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-block process__col" data-item="4" data-aos="fade-up">
+                    <div class="process__text">
+                        <h4>{{aboutItem4}}</h4>
+
+                        <p>
+                        {{item4Desc}}
+                        </p>
+                    </div>
+                </div>
+
+            </div> <!-- end process -->
+
+        </div> <!-- end about-stats -->
+
+    </section> <!-- end s-about -->
     <!-- services
     ================================================== -->
     <section id='services' class="s-services light-gray">
