@@ -201,9 +201,11 @@ $('#textos7').click(function(e){
     $('.textos6').css('display','none');
     $('.Inicio').css('display','none');
 });
+// Imagenes de portafolio
 $('#textos15').click(function(e){
     e.preventDefault();
     $('.textos7').css('display','block');
+    $('.textos8').css('display','block');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -593,7 +595,14 @@ $('#subir_port6').click(function(e){
         alert('No hay ninguna foto cargada');
     }
 });
-
+// imagenes mis 15
+$('#subir_port1.1').click(function(e){
+    if($('#image_port1.1').val()==''){
+        e.preventDefault();
+        alert('No hay ninguna foto cargada');
+    }
+});
+// cerrar sesion
 $('#cerrar_sesion').click(async function(){
     await $.post("http://localhost:3200/close",{}, function(informacion, estado){
         console.log("Estado: " + estado);
@@ -601,6 +610,7 @@ $('#cerrar_sesion').click(async function(){
     });
     location.reload();
 });
+// imagenes de service, fotobook, banners, etc.
 $('#img_service1').click(function(e){
     if($('#img_serv1').val()==''){
         e.preventDefault();

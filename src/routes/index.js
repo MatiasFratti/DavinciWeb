@@ -102,7 +102,37 @@ router.get('/',async(req,res,next)=>{
         img_port6_title:imgPort[5].title,
         img_port6_cat:imgPort[5].cat,
         img_port6_proj: imgPort[5].projLink,
-        img_port6_desc: imgPort[5].description
+        img_port6_desc: imgPort[5].description,
+        // Mis quince 15.1
+        img_port11_title:imgPort[6].title,
+        img_port11_cat:imgPort[6].cat,
+        img_port11_proj: imgPort[6].projLink,
+        img_port11_desc: imgPort[6].description,
+        // 15.2
+        img_port22_title:imgPort[7].title,
+        img_port22_cat:imgPort[7].cat,
+        img_port22_proj: imgPort[7].projLink,
+        img_port22_desc: imgPort[7].description,
+        // 15.3
+        img_port33_title:imgPort[8].title,
+        img_port33_cat:imgPort[8].cat,
+        img_port33_proj: imgPort[8].projLink,
+        img_port33_desc: imgPort[8].description,
+        // 15.4
+        img_port44_title:imgPort[9].title,
+        img_port44_cat:imgPort[9].cat,
+        img_port44_proj: imgPort[9].projLink,
+        img_port44_desc: imgPort[9].description,
+        // 15.5
+        img_port55_title:imgPort[10].title,
+        img_port55_cat:imgPort[10].cat,
+        img_port55_proj: imgPort[10].projLink,
+        img_port55_desc: imgPort[10].description,
+        // 15.6
+        img_port66_title:imgPort[11].title,
+        img_port66_cat:imgPort[11].cat,
+        img_port66_proj: imgPort[11].projLink,
+        img_port66_desc: imgPort[11].description
     });
     
 });
