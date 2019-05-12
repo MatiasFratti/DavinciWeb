@@ -7,6 +7,7 @@ if($('#error').text()!=''){
     var err = $('#error').text();
     alert(err);
 }
+
 $('#textos0').click(function(e){
     e.preventDefault();
     $('.Inicio').css('display','grid');
@@ -215,349 +216,339 @@ $('#textos15').click(function(e){
     $('.textos6').css('display','none');
     $('.Inicio').css('display','none');
 });
+$(".close").click(function(){
+    $("#alerta").css("display","none");
+})
+var a = true;
+function inputEmpty(x){
+    
+    var msj = $('#msj');
+    if($(`#titulo${x}`).val()==""){
+            msj.text('No debe estar vacío este campo');
+            
+            $("#alerta").css("display","block");
+            return a=false;
+    }
+    else{
+        a=true;
+    }
 
+}
+function postTextos(x){
+    $.post("http://localhost:3200/Actualizar",{text:$(`#titulo${x}`).val(),code:`${x}`},
+    function(data, status){
+        alert("Data: " + status );
+        console.log($(`#titulo${x}`).val());       
+    });
+}
+// $('button').click(function(){
+//    alert('click')
+  
+//     for(var i=1;i>50;i++){
+//         $(`#actualizar${i}`).click(function(){
+//             inputEmpty(i);
+//             if(a==true){
+//                 postTextos(i);
+//                 console.log($('#titulo1').val());
+//             }
+//         });
+//     }
+// })
 $('#actualizar1').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo1').val(),code:1},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo1').val());
+    inputEmpty(1);
+    if(a==true){
+        postTextos(1);
+        
+    }
 });
+
  $('#actualizar2').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo2').val(),code:2},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo2').val());
+    inputEmpty(2);
+    if(a==true){
+        postTextos(2);       
+    }
 });
 $('#actualizar3').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo3').val(),code:3},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo3').val());
+    inputEmpty(3);
+    if(a==true){
+        postTextos(3);       
+    }
 });
 $('#actualizar4').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo4').val(),code:4},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo4').val());
+    inputEmpty(4);
+    if(a==true){
+        postTextos(4);       
+    }
 });
 $('#actualizar5').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo5').val(),code:5},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo5').val());
+    inputEmpty(5);
+    if(a==true){
+        postTextos(5);       
+    }   
 });
 $('#actualizar6').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo6').val(),code:6},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo6').val());
+    inputEmpty(6);
+    if(a==true){
+        postTextos(6);       
+    }
 });
 $('#actualizar7').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo7').val(),code:7},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo7').val());
+    inputEmpty(7);
+    if(a==true){
+        postTextos(7);       
+    }
 });
 $('#actualizar8').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo8').val(),code:8},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo8').val());
+    inputEmpty(8);
+    if(a==true){
+        postTextos(8);       
+    }
 });
 $('#actualizar9').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo9').val(),code:9},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo9').val());
+    inputEmpty(9);
+    if(a==true){
+        postTextos(9);       
+    }
 });
 $('#actualizar10').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo10').val(),code:10},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo10').val());
+    inputEmpty(19);
+    if(a==true){
+        postTextos(10);       
+    }
 });
 $('#actualizar11').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo11').val(),code:11},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo11').val());
+    inputEmpty(11);
+    if(a==true){
+        postTextos(11);       
+    }
 });
 $('#actualizar12').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo12').val(),code:12},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo12').val());
+    inputEmpty(12);
+    if(a==true){
+        postTextos(12);       
+    }
 });
 $('#actualizar13').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo13').val(),code:13},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo13').val());
+    inputEmpty(13);
+    if(a==true){
+        postTextos(13);       
+    }
 });
 $('#actualizar14').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo14').val(),code:14},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo14').val());
+    inputEmpty(14);
+    if(a==true){
+        postTextos(14);       
+    }
 });
 $('#actualizar15').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo15').val(),code:15},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo15').val());
+    inputEmpty(15);
+    if(a==true){
+        postTextos(15);       
+    }
 });
 $('#actualizar16').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo16').val(),code:16},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo16').val());
+    inputEmpty(16);
+    if(a==true){
+        postTextos(16);       
+    }
 });
 $('#actualizar17').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo17').val(),code:17},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo17').val());
+    inputEmpty(17);
+    if(a==true){
+        postTextos(17);       
+    }
 });
 $('#actualizar18').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo18').val(),code:18},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo18').val());
+    inputEmpty(18);
+    if(a==true){
+        postTextos(18);       
+    }
 });
 $('#actualizar19').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo19').val(),code:19},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo19').val());
+    inputEmpty(19);
+    if(a==true){
+        postTextos(19);       
+    }
 });
 $('#actualizar20').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo20').val(),code:20},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo20').val());
+    inputEmpty(20);
+    if(a==true){
+        postTextos(20);       
+    }
 });
 $('#actualizar21').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo21').val(),code:21},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo21').val());
+    inputEmpty(21);
+    if(a==true){
+        postTextos(21);       
+    }
 });
 $('#actualizar22').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo22').val(),code:22},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo22').val());
+    inputEmpty(22);
+    if(a==true){
+        postTextos(22);       
+    }
 });
 $('#actualizar23').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo23').val(),code:23},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo23').val());
+    inputEmpty(23);
+    if(a==true){
+        postTextos(23);       
+    }
 });
 $('#actualizar24').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo24').val(),code:24},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo24').val());
+    inputEmpty(24);
+    if(a==true){
+        postTextos(24);       
+    }
 });
 $('#actualizar25').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo25').val(),code:25},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo25').val());
+    inputEmpty(25);
+    if(a==true){
+        postTextos(25);       
+    }
 });
 $('#actualizar26').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo26').val(),code:26},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo26').val());
+    inputEmpty(26);
+    if(a==true){
+        postTextos(26);       
+    }
 });
 $('#actualizar27').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo27').val(),code:27},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo27').val());
+    inputEmpty(27);
+    if(a==true){
+        postTextos(27);       
+    }
 });
 $('#actualizar28').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo28').val(),code:28},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo28').val());
+    inputEmpty(28);
+    if(a==true){
+        postTextos(28);       
+    }
 });
 $('#actualizar29').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo29').val(),code:29},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo29').val());
+    inputEmpty(29);
+    if(a==true){
+        postTextos(29);       
+    }
 });
 $('#actualizar30').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo30').val(),code:30},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo30').val());
+    inputEmpty(30);
+    if(a==true){
+        postTextos(30);       
+    }
 });
 $('#actualizar31').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo31').val(),code:31},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo31').val());
+    inputEmpty(31);
+    if(a==true){
+        postTextos(31);       
+    }
 });
 $('#actualizar32').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo32').val(),code:32},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo322').val());
+    inputEmpty(32);
+    if(a==true){
+        postTextos(32);       
+    }
 });
 $('#actualizar33').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo33').val(),code:33},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo33').val());
+    inputEmpty(33);
+    if(a==true){
+        postTextos(33);       
+    }
 });
 $('#actualizar34').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo34').val(),code:34},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo34').val());
+    inputEmpty(34);
+    if(a==true){
+        postTextos(34);       
+    }
 });
 $('#actualizar35').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo35').val(),code:35},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo35').val());
+    inputEmpty(35);
+    if(a==true){
+        postTextos(35);       
+    }
 });
 $('#actualizar36').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo36').val(),code:36},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo36').val());
+    inputEmpty(36);
+    if(a==true){
+        postTextos(36);       
+    }
 });
 $('#actualizar37').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo37').val(),code:37},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo37').val());
+    inputEmpty(37);
+    if(a==true){
+        postTextos(37);       
+    }
 });
 $('#actualizar38').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo38').val(),code:38},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo38').val());
+    inputEmpty(38);
+    if(a==true){
+        postTextos(38);       
+    }
 });
 $('#actualizar39').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo39').val(),code:39},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo39').val());
+    inputEmpty(39);
+    if(a==true){
+        postTextos(39);       
+    }
 });
 $('#actualizar40').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo40').val(),code:40},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo40').val());
+    inputEmpty(40);
+    if(a==true){
+        postTextos(40);       
+    }
 });
 $('#actualizar41').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo41').val(),code:41},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo41').val());
+    inputEmpty(41);
+    if(a==true){
+        postTextos(41);       
+    }
 });
 $('#actualizar42').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo42').val(),code:42},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo42').val());
+    $. inputEmpty(42);
+    if(a==true){
+        postTextos(42);       
+    }
 });
 $('#actualizar43').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo43').val(),code:43},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo43').val());
+    inputEmpty(43);
+    if(a==true){
+        postTextos(43);       
+    }
 });
 $('#actualizar44').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo44').val(),code:44},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo44').val());
+    inputEmpty(44);
+    if(a==true){
+        postTextos(44);       
+    }
 });
 $('#actualizar45').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo45').val(),code:45},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo45').val());
+    inputEmpty(45);
+    if(a==true){
+        postTextos(45);       
+    }
 });
 $('#actualizar46').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo46').val(),code:46},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo46').val());
+    inputEmpty(46);
+    if(a==true){
+        postTextos(46);       
+    }
 });
 $('#actualizar47').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo47').val(),code:47},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo47').val());
+    inputEmpty(47);
+    if(a==true){
+        postTextos(47);       
+    }
 });
 $('#actualizar48').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo48').val(),code:48},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo48').val());
+    inputEmpty(48);
+    if(a==true){
+        postTextos(48);       
+    }
 });
 $('#actualizar49').click(function(){
-    $.post("http://localhost:3200/Actualizar",{text:$('#titulo49').val(),code:49},
-        function(data, status){
-         alert("Data: " + status );                
-    });
-     console.log($('#titulo49').val());
+    inputEmpty(49);
+    if(a==true){
+        postTextos(49);       
+    }
 });
 $('#subir_port').click(function(e){
     if($('#image_port1').val()==''){
