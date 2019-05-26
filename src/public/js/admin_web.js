@@ -7,7 +7,27 @@ if($('#error').text()!=''){
     var err = $('#error').text();
     alert(err);
 }
-
+function Opacidad(){
+    var opacidad = $("#opacity_admin").text();
+    var img_cabecera = $("#imagen_cabecera");
+    var opa = (1-parseFloat(opacidad));
+    console.log(opacidad," ",opa,);
+    img_cabecera.css("opacity",`${opa}`);
+}
+Opacidad();
+$('#grafic').click(function(e){
+    e.preventDefault();
+    $('#grafica').css('display','block');
+    
+    $('.textos').css('display','none');
+    $('.textos1').css('display','none');
+    $('.textos2').css('display','none');
+    $('.textos3').css('display','none');
+    $('.textos4').css('display','none');
+    $('.textos5').css('display','none');
+    $('.textos6').css('display','none');
+    $('.textos7').css('display','none');
+});
 $('#textos0').click(function(e){
     e.preventDefault();
     $('.Inicio').css('display','grid');
@@ -22,6 +42,7 @@ $('#textos0').click(function(e){
 });
 $('#textos').click(function(e){
     e.preventDefault();
+    $('#grafica').css('display','none');
     $('.textos').css('display','block');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -36,6 +57,7 @@ $('#textos').click(function(e){
 $('#textos8').click(function(e){
     e.preventDefault();
     $('.textos').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
     $('.textos3').css('display','none');
@@ -49,6 +71,7 @@ $('#textos8').click(function(e){
 $('#textos1').click(function(e){
     e.preventDefault();
     $('.textos1').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos').css('display','none');
     $('.textos2').css('display','none');
     $('.textos3').css('display','none');
@@ -73,6 +96,7 @@ $('#textos9').click(function(e){
 $('#textos2').click(function(e){
     e.preventDefault();
     $('.textos2').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos3').css('display','none');
@@ -97,6 +121,7 @@ $('#textos10').click(function(e){
 $('#textos3').click(function(e){
     e.preventDefault();
     $('.textos3').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -121,6 +146,7 @@ $('#textos11').click(function(e){
 $('#textos4').click(function(e){
     e.preventDefault();
     $('.textos4').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -145,6 +171,7 @@ $('#textos12').click(function(e){
 $('#textos5').click(function(e){
     e.preventDefault();
     $('.textos5').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -169,6 +196,7 @@ $('#textos13').click(function(e){
 $('#textos6').click(function(e){
     e.preventDefault();
     $('.textos6').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -193,6 +221,7 @@ $('#textos14').click(function(e){
 $('#textos7').click(function(e){
     e.preventDefault();
     $('.textos7').css('display','block');
+    $('#grafica').css('display','none');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -641,3 +670,12 @@ $('#img_service6').click(function(e){
 if($('#msg_service').text()!=''){
     alert($('#msg_service').text());
 }
+$("#opacity-btn").click( function (){
+    var opacidad = $("#opacity").val();
+    console.log(opacidad); 
+     $.post("http://localhost:3200/opacity",{opacity:opacidad},
+        function(data, status){
+        alert("Data: " + status );
+        console.log(opacidad);  
+    })
+});

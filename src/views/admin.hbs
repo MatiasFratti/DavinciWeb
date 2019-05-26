@@ -1,927 +1,937 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administrador</title>
-    <link rel="shortcut icon" href="https://static.wixstatic.com/media/2b8da3_01cb2723551745448b9f827be88a36f4.png/v1/fill/w_74,h_68,al_c,q_80,usm_0.66_1.00_0.01/2b8da3_01cb2723551745448b9f827be88a36f4.webp" type="image/x-icon">
-    <link rel="icon" href="https://static.wixstatic.com/media/2b8da3_01cb2723551745448b9f827be88a36f4.png/v1/fill/w_74,h_68,al_c,q_80,usm_0.66_1.00_0.01/2b8da3_01cb2723551745448b9f827be88a36f4.webp" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/admin.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
-   </head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Administrador</title>
+<link rel="shortcut icon" href="https://static.wixstatic.com/media/2b8da3_01cb2723551745448b9f827be88a36f4.png/v1/fill/w_74,h_68,al_c,q_80,usm_0.66_1.00_0.01/2b8da3_01cb2723551745448b9f827be88a36f4.webp" type="image/x-icon">
+<link rel="icon" href="https://static.wixstatic.com/media/2b8da3_01cb2723551745448b9f827be88a36f4.png/v1/fill/w_74,h_68,al_c,q_80,usm_0.66_1.00_0.01/2b8da3_01cb2723551745448b9f827be88a36f4.webp" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+{{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<link rel="stylesheet" href="css/admin.css">
+</head>
 <body>
-    <div  class="contenedor">
-        
-        <div class="menu">
-            
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="http://localhost:3200">Ir a la Web</a>
-                    
-                </li>
-                <li class="nav-item">
-                    <a id="textos0" class="nav-link active" href="">Inicio</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a id="textos" class="nav-link active" href="">Titulos</a>
-                    
-                </li>
-                 
-                 <li class="nav-item">
-                    <a id="textos2" class="nav-link active" href="">Sección Works</a>
-                   
-                </li>
-                <li class="nav-item">
-                    <a id="textos1" class="nav-link active" href="">Sección About</a>
-                   
-                </li>
-                <li class="nav-item">
-                    <a id="textos3" class="nav-link active" href="">Sección Services</a>
-                   
-                </li>
-                 <li class="nav-item">
-                    <a id="textos4" class="nav-link active" href="">Sección Contacto</a>
-                    
-                </li>               
-                <li class="nav-item">
-                    <a id="textos6" class="nav-link active" href="">Sección Status</a>
-                   
-                </li>
-                <li class="nav-item">
-                    <a id="textos5" class="nav-link active" href="">Redes Sociales</a>
-                   
-                </li>
-                <li class="nav-item">
-                    <a id="textos7" class="nav-link active" href="">Imagenes</a>
-                   
-                </li>
-                
-            </ul>
-        </div>
-         
-        <center><h1 id="tituloPanel"><img id="logo" src="https://static.wixstatic.com/media/2b8da3_01cb2723551745448b9f827be88a36f4.png/v1/fill/w_74,h_68,al_c,q_80,usm_0.66_1.00_0.01/2b8da3_01cb2723551745448b9f827be88a36f4.webp" alt="Davinci logo">Panel Administrador de Davinci Raleigh<button id="cerrar_sesion" class="btn btn-dark">Cerrar sesión</button></h1></center>
-            
-            <div id="alerta" class="alert alert-warning alert-dismissible fade show" role="alert" style="width:400px;">
-                <strong id="msj">{{_message}}</strong> 
-                <button type="button" class="close"  aria-label="Close">
-                    <span id="mensaje_alerta" aria-hidden="true">&times;</span>
+    {{!-- <div class="contenedor" style="position:fixed; width:100%">     --}}
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-            </div>
-             <strong id="error">{{err}}</strong> 
-        <div class="Inicio">
-            <a class="icono" id="textos8" href="">Titulos</a>
-            <a class="icono" id="textos9" href="">Sección About</a>
-            <a class="icono" id="textos10" href="">Sección Works</a>
-            <a class="icono" id="textos11" href="">Sección Services</a>
-            <a class="icono" id="textos12" href="">Sección Contacto</a>
-            <a class="icono" id="textos13" href="">Status</a>
-            <a class="icono" id="textos14" href="">Redes Sociales</a>
-            <a class="icono" id="textos15" href="">Imagenes</a>                  
-        </div>   
-        <div class="textos" >
-            <h2>Título principal de la web</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo1" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar1" class="btn btn-primary" type="button">Actualizar</button>
+                <a class="navbar-brand" href="#">Davinci</a>
                 </div>
-            </div>
-        </div>       
-        <div class="textos" >
-            <h2>Subtítulo principal de la web</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo2" type="text" class="form-control" placeholder="Subtitulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar2" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- Sección About --}}
-        <div class="textos1" >
-            <h2>Sección about</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo3" type="text" class="form-control" placeholder="Quienes somos" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar3" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2>Sección about  título</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo4" type="text" class="form-control" placeholder="titulo about" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar4" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2>Sección about  descripcion</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo5" type="text" class="form-control" placeholder="Descripcion about" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar5" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2>Sección about  Item 1 título</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo6" type="text" class="form-control" placeholder="título item 1" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar6" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2> Item 1 descripcion</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo7" class="form-control" placeholder="Descripción item 1" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar7" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2>Sección about  Item 2 título</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo8" type="text" class="form-control" placeholder="título item 2" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar8" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2> Item 2 descripcion</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo9" class="form-control" placeholder="Descripción item 2" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar9" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-    
-        <div class="textos1" >
-            <h2>Sección about  Item 3 título</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo10" type="text" class="form-control" placeholder="título item 3" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar10" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2> Item 3 descripcion</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo11" class="form-control" placeholder="Descripción item 3" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar11" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2>Sección about  Item 4 título</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo12" type="text" class="form-control" placeholder="título item 4" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar12" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos1" >
-            <h2> Item 4 descripcion</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo13" class="form-control" placeholder="Descripción item 4" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar13" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- Sección Works --}}
-        <div class="textos2" >
-            <h2> Sección Works</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo14" type="text" class="form-control" placeholder="Trabajos destacados" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar14" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos2" >
-            <h2> Sección Works Título</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo15" class="form-control" placeholder="Título de sección Works" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar15" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- Sección Service --}}
-         <div class="textos3" >
-            <h2> Sección Service</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo16" type="text" class="form-control" placeholder="¿Qué es lo que hacemos?" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar16" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services Título</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo17" class="form-control" placeholder="Título de sección Services" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar17" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-           
-        </div>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services descripción</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo18" class="form-control" placeholder="Descripción de sección Services" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar18" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-    
-        <div class="textos3" >
-            <h2> Sección Service título Item 1</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo19" type="text" class="form-control" placeholder="Título Item 1" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar19" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-             <span id="msg_service" style="display:none">{{_msg}}</span>
-            <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
-                <h2>Imagen actual</h2>
-                <img class="img_service" src="images/services/photobook.png" alt="" title="foto de Photobook">
-                <br>
-                <input type="file" class="form-control-file" id="img_serv1" name="file" >
-                <br>
-                <input type="number" value="1" name="code" style="display:none">
-                <input type="submit" class="btn btn-primary" id="img_service1" value="Cambiar">
-            </form>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services Item 1 contenido</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo20" class="form-control" placeholder="Contenido Item 1" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar20" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- item2 services --}}
-        <div class="textos3" >
-            <h2> Sección Service título Item 2</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo21" type="text" class="form-control" placeholder="Título Item 2" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar21" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-             <span id="msg_service" style="display:none">{{_msg}}</span>
-            <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
-                <h2>Imagen actual</h2>
-                <img class="img_service" src="images/services/banner.png" alt="" title="foto de Photobook">
-                <br>
-                <input type="file" class="form-control-file" id="img_serv2" name="file" >
-                <br>
-                <input type="number" value="2" name="code" style="display:none">
-                <input type="submit" class="btn btn-primary" id="img_service2" value="Cambiar">
-            </form>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services Item 2 contenido</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo22" class="form-control" placeholder="Contenido Item 2" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar22" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Service título Item 3</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo23" type="text" class="form-control" placeholder="Título Item 3" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar23" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-            <span id="msg_service" style="display:none">{{_msg}}</span>
-            <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
-                <h2>Imagen actual</h2>
-                <img class="img_service" src="images/services/sesion.png" alt="" title="foto de Photobook">
-                <br>
-                <input type="file" class="form-control-file" id="img_serv3" name="file" >
-                <br>
-                <input type="number" value="3" name="code" style="display:none">
-                <input type="submit" class="btn btn-primary" id="img_service3" value="Cambiar">
-            </form>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services Item 3 contenido</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo24" class="form-control" placeholder="Contenido Item 3" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar24" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-    
-        <div class="textos3" >
-            <h2> Sección Service título Item 4</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo25" type="text" class="form-control" placeholder="Título Item 4" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar25" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-             <span id="msg_service" style="display:none">{{_msg}}</span>
-            <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
-                <h2>Imagen actual</h2>
-                <img class="img_service" src="images/services/diseno-grafico.png" alt="" title="foto de Photobook">
-                <br>
-                <input type="file" class="form-control-file" id="img_serv4" name="file" >
-                <br>
-                <input type="number" value="4" name="code" style="display:none">
-                <input type="submit" class="btn btn-primary" id="img_service4" value="Cambiar">
-            </form>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services Item 4 contenido</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo26" class="form-control" placeholder="Contenido Item 4" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar26" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>      
-        </div>
-        <div class="textos3" >
-            <h2> Sección Service título Item 5</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo27" type="text" class="form-control" placeholder="Título Item 5" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar27" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-             <span id="msg_service" style="display:none">{{_msg}}</span>
-            <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
-                <h2>Imagen actual</h2>
-                <img class="img_service" src="images/services/tarjetas.png" alt="" title="foto de Photobook">
-                <br>
-                <input type="file" class="form-control-file" id="img_serv5" name="file" >
-                <br>
-                <input type="number" value="5" name="code" style="display:none">
-                <input type="submit" class="btn btn-primary" id="img_service5" value="Cambiar">
-            </form>
-            
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services Item 5 contenido</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo28" class="form-control" placeholder="Contenido Item 5" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar28" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Service título Item 6</h2>
-            <div class="input-group mb-3">          
-                <input id="titulo29" type="text" class="form-control" placeholder="Título Item 6" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar29" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-             <span id="msg_service" style="display:none">{{_msg}}</span>
-            <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
-                <h2>Imagen actual</h2>
-                <img class="img_service" src="images/services/fotomontaje.png" alt="" title="foto de Photobook">
-                <br>
-                <input type="file" class="form-control-file" id="img_serv6" name="file" >
-                <br>
-                <input type="number" value="6" name="code" style="display:none">
-                <input type="submit" class="btn btn-primary" id="img_service6" value="Cambiar">
-            </form>
-        </div>
-        <div class="textos3" >
-            <h2> Sección Services Item 6 contenido</h2>
-            <div class="input-group mb-3">          
-                <textarea id="titulo30" class="form-control" placeholder="Contenido Item 6" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar30" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- Sección Contact --}}
-        <div class="textos4" >
-            <h2> Sección Contact Título</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo31" type="text" class="form-control" placeholder="Contactenos" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar31" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos4" >
-            <h2> Sección Contact Subtítulo</h2>
-            <div class="input-group mb-3">          
-                 <textarea id="titulo32" class="form-control" placeholder="Subtitulo Contact" aria-label="With textarea"></textarea>
-                <div class="input-group-append">
-                    <button id="actualizar32" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos4" >
-            <h2> Sección Contact Mail</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo33" type="text" class="form-control" placeholder="example@gmail.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar33" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos4" >
-            <h2> Sección Contact Teléfono</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo34" type="text" class="form-control" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar34" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos4" >
-            <h2> Sección Contact "Where find us"</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo35" type="text" class="form-control" placeholder="texto: 'Donde estamos'" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar35" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos4" >
-            <h2> Sección Contact Dirección1</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo36" type="text" class="form-control" placeholder="Dirección 1" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar36" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos4" >
-            <h2> Sección Contact Dirección2</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo37" type="text" class="form-control" placeholder="Dirección 2" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar37" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- Sección Status --}}
-         <div class="textos6">           
-            <h2>Seción Status 1</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo42" type="text" class="form-control" placeholder="Premios" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar42" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos6" >
-            <h2> Cantidad Status 1</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo43" type="number" class="form-control" placeholder="Cantidad de premios" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar43" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos6">           
-            <h2>Seción Status 2</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo44" type="text" class="form-control" placeholder="Tasas de café" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar44" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos6" >
-            <h2> Cantidad Status 2</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo45" type="number" class="form-control" placeholder="Cantidad de tasas" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar45" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos6">           
-            <h2>Seción Status 3</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo46" type="text" class="form-control" placeholder="Sesiones fotogáficas" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar46" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos6" >
-            <h2> Cantidad Status 3</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo47" type="number" class="form-control" placeholder="Cantidad de sesiones" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar47" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos6">           
-            <h2>Seción Status 4</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo48" type="text" class="form-control" placeholder="Clientes satisfechos" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar48" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos6" >
-            <h2> Cantidad Status 4</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo49" type="number" class="form-control" placeholder="Cantidad de clientes" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar49" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- Sección Redes --}}
-        <div class="textos5">
-            
-            <h2> Sección Redes Título</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo38" type="text" class="form-control" placeholder="Siganos..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar38" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos5" >
-            <h2> Link Facebook</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo39" type="text" class="form-control" placeholder="facebook.com/...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar39" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos5" >
-            <h2> Link Instagram</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo40" type="text" class="form-control" placeholder="instagram.com/...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar40" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        <div class="textos5" >
-            <h2> Link Youtube</h2>
-            <div class="input-group mb-3">          
-                 <input id="titulo41" type="text" class="form-control" placeholder="youtube.com/...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="actualizar41" class="btn btn-primary" type="button">Actualizar</button>
-                </div>
-            </div>
-        </div>
-        {{!-- Sección imagenes --}}
-        
-        <div class="textos7">
-            <div id="titulo_head"><h1>Imagen de cabecera</h1></div>
-            <div class="container">
-                <h3>Foto actual</h3>
-                <img id="imagen_cabecera" src="images/head/foto_head.jpg" title="Foto actual">
-                <hr>
-            </div>
-            <form action="http://localhost:3200/upHead" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
+                <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="http://localhost:3200/admin">Panel de control</a></li>
+                    <li><a href="http://localhost:3200/" target="_blank">Ir a la web</a></li>
+                    <li><a href="entradas.html">Informes</a></li>
+                    {{!-- <li><a href="usuarios.html">Usuarios</a></li> --}}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     
-                    <input type="file" class="form-control-file" id="image" name="file">                  
+                    <li><button id="cerrar_sesion" class="btn btn-dark">Cerrar sesión</button></li>
+                </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1 id="titulo_panel"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de Control <small>Davinci Raleigh</small></h1>
+                    </div>
                 </div>
-                 <input type="submit" class="btn btn-primary" id="mostrar" value="Subir">
-            </form>
-            <hr>
-
+            </div>
+        </header>     
+        <div class="row">
+            <p id="info"></p>
+            <div class="col-md-8 col-md-offset-3">
+                <div id="alerta" class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong id="msj">{{_message}}</strong>
+                    </div>
+                </div>
+            </div>
         </div>
-         <div class="textos7">
-            <div id="titulo_head"><h1>Imagenes del portafoilio Bodas</h1></div>
-            <div class="container">
-                <h3>Foto 1 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-lamp.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port6" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port6" name="file2"> 
-                    <input type="number" value="6" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port6" value="Subir">
-            </form>
-            <hr>
-            
-            <div class="container">
-                <h3>Foto 2 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-salad.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port2" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port2" name="file2"> 
-                    <input type="number" value="2" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port2" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 3 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-woodcraft.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port3" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port3" name="file2"> 
-                    <input type="number" value="3" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port3" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 4 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-liberty.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port4" name="file"> 
-                    <hr>          
-                    <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port4" name="file2"> 
-                    <input type="number" value="4" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port4" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 5 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-fuji.jpg" title="Foto actual">
-               
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port1" name="file"> 
-                    <hr>          
-                    <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port1" name="file2"> 
-                    <input type="number" value="1" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 6 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-shutterbug.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port5" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port5" name="file2"> 
-                    <input type="number" value="5" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port5" value="Subir">
-            </form>
-            <hr>
-            
 
+    {{!-- </div>  --}}
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div id="barra_horizontal" class="col-md-3">
+                    <div class="list-group">
+                        <a href="index.html" class="list-group-item active color-principal">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de Control
+                        </a>
+                        <a id="grafic" href="" class="list-group-item"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Visitas hoy <span class="badge">{{nro_visitas}}</span></a>
+                        <a id="textos" href="" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Títulos</a>
+                        <a id="textos2" href="" class="list-group-item"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Sección Works</a>
+                        <a id="textos1" href="" class="list-group-item"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Sección About</a>
+                        <a id="textos3" href="" class="list-group-item"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Sección Service</a>
+                        <a id="textos4" href="" class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Sección Contacto</a>
+                        <a id="textos6" href="" class="list-group-item"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Sección Status</a>
+                        <a id="textos5" href="" class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Redes Sociales</a>
+                        <a id="textos7" href="" class="list-group-item"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Imágenes</a>
+                        
+                    </div>
+                </div>      
+                <div id="inputs" class="col-md-7 col-md-offset-3">
+                    <div id="grafica"></div>                    
+                    <div class="textos" >
+                        <h2>Título principal de la web</h2>
+                        <div class="input-group">          
+                            <input id="titulo1" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar1" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>                           
+                        </div>
+                    </div>       
+                    <div class="textos" >
+                        <h2>Subtítulo principal de la web</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo2" type="text" class="form-control" placeholder="Subtitulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar2" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos2" >
+                    <h2> Sección Works</h2>
+                    <div class="input-group mb-3">          
+                        <input id="titulo14" type="text" class="form-control" placeholder="Trabajos destacados" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-btn">
+                            <button id="actualizar14" class="btn btn-primary" type="button">Actualizar</button>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="textos2" >
+                        <h2> Sección Works Título</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo15" class="form-control" placeholder="Título de sección Works" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar15" class="btn btn-primary" style="height:55px" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2>Sección about</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo3" type="text" class="form-control" placeholder="Quienes somos" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar3" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2>Sección about  título</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo4" type="text" class="form-control" placeholder="titulo about" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar4" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2>Sección about  descripcion</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo5" type="text" class="form-control" placeholder="Descripcion about" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar5" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2>Sección about  Item 1 título</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo6" type="text" class="form-control" placeholder="título item 1" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar6" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2> Item 1 descripcion</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo7" class="form-control" placeholder="Descripción item 1" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar7" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2>Sección about  Item 2 título</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo8" type="text" class="form-control" placeholder="título item 2" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar8" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2> Item 2 descripcion</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo9" class="form-control" placeholder="Descripción item 2" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar9" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="textos1" >
+                        <h2>Sección about  Item 3 título</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo10" type="text" class="form-control" placeholder="título item 3" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar10" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2> Item 3 descripcion</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo11" class="form-control" placeholder="Descripción item 3" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar11" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2>Sección about  Item 4 título</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo12" type="text" class="form-control" placeholder="título item 4" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar12" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos1" >
+                        <h2> Item 4 descripcion</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo13" class="form-control" placeholder="Descripción item 4" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar13" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="textos3" >
+                        <h2> Sección Service</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo16" type="text" class="form-control" placeholder="¿Qué es lo que hacemos?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar16" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services Título</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo17" class="form-control" placeholder="Título de sección Services" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar17" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>                   
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services descripción</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo18" class="form-control" placeholder="Descripción de sección Services" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar18" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="textos3" >
+                        <h2> Sección Service título Item 1</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo19" type="text" class="form-control" placeholder="Título Item 1" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar19" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                        <span id="msg_service" style="display:none">{{_msg}}</span>
+                        <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
+                            <h2>Imagen actual</h2>
+                            <img class="img_service" src="images/services/photobook.png" alt="" title="foto de Photobook">
+                            <br>
+                            <input type="file" class="form-control-file" id="img_serv1" name="file" >
+                            <br>
+                            <input type="number" value="1" name="code" style="display:none">
+                            <input type="submit" class="btn btn-primary" id="img_service1" value="Cambiar">
+                        </form>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services Item 1 contenido</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo20" class="form-control" placeholder="Contenido Item 1" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar20" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div> 
+                    {{!-- item2 services --}}
+                    
+                    <div class="textos3" >
+                        <h2> Sección Service título Item 2</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo21" type="text" class="form-control" placeholder="Título Item 2" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar21" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                        <span id="msg_service" style="display:none">{{_msg}}</span>
+                        <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
+                            <h2>Imagen actual</h2>
+                            <img class="img_service" src="images/services/banner.png" alt="" title="foto de Photobook">
+                            <br>
+                            <input type="file" class="form-control-file" id="img_serv2" name="file" >
+                            <br>
+                            <input type="number" value="2" name="code" style="display:none">
+                            <input type="submit" class="btn btn-primary" id="img_service2" value="Cambiar">
+                        </form>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services Item 2 contenido</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo22" class="form-control" placeholder="Contenido Item 2" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar22" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Service título Item 3</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo23" type="text" class="form-control" placeholder="Título Item 3" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar23" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                        <span id="msg_service" style="display:none">{{_msg}}</span>
+                        <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
+                            <h2>Imagen actual</h2>
+                            <img class="img_service" src="images/services/sesion.png" alt="" title="foto de Photobook">
+                            <br>
+                            <input type="file" class="form-control-file" id="img_serv3" name="file" >
+                            <br>
+                            <input type="number" value="3" name="code" style="display:none">
+                            <input type="submit" class="btn btn-primary" id="img_service3" value="Cambiar">
+                        </form>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services Item 3 contenido</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo24" class="form-control" placeholder="Contenido Item 3" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar24" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="textos3" >
+                        <h2> Sección Service título Item 4</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo25" type="text" class="form-control" placeholder="Título Item 4" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar25" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                        <span id="msg_service" style="display:none">{{_msg}}</span>
+                        <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
+                            <h2>Imagen actual</h2>
+                            <img class="img_service" src="images/services/diseno-grafico.png" alt="" title="foto de Photobook">
+                            <br>
+                            <input type="file" class="form-control-file" id="img_serv4" name="file" >
+                            <br>
+                            <input type="number" value="4" name="code" style="display:none">
+                            <input type="submit" class="btn btn-primary" id="img_service4" value="Cambiar">
+                        </form>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services Item 4 contenido</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo26" class="form-control" placeholder="Contenido Item 4" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar26" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>      
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Service título Item 5</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo27" type="text" class="form-control" placeholder="Título Item 5" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar27" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                        <span id="msg_service" style="display:none">{{_msg}}</span>
+                        <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
+                            <h2>Imagen actual</h2>
+                            <img class="img_service" src="images/services/tarjetas.png" alt="" title="foto de Photobook">
+                            <br>
+                            <input type="file" class="form-control-file" id="img_serv5" name="file" >
+                            <br>
+                            <input type="number" value="5" name="code" style="display:none">
+                            <input type="submit" class="btn btn-primary" id="img_service5" value="Cambiar">
+                        </form>
+                        
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services Item 5 contenido</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo28" class="form-control" placeholder="Contenido Item 5" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar28" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Service título Item 6</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo29" type="text" class="form-control" placeholder="Título Item 6" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar29" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                        <span id="msg_service" style="display:none">{{_msg}}</span>
+                        <form action="http://localhost:3200/upService" method="POST" enctype="multipart/form-data">
+                            <h2>Imagen actual</h2>
+                            <img class="img_service" src="images/services/fotomontaje.png" alt="" title="foto de Photobook">
+                            <br>
+                            <input type="file" class="form-control-file" id="img_serv6" name="file" >
+                            <br>
+                            <input type="number" value="6" name="code" style="display:none">
+                            <input type="submit" class="btn btn-primary" id="img_service6" value="Cambiar">
+                        </form>
+                    </div>
+                    <div class="textos3" >
+                        <h2> Sección Services Item 6 contenido</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo30" class="form-control" placeholder="Contenido Item 6" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar30" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos4" >
+                        <h2> Sección Contact Título</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo31" type="text" class="form-control" placeholder="Contactenos" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar31" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos4" >
+                        <h2> Sección Contact Subtítulo</h2>
+                        <div class="input-group mb-3">          
+                            <textarea id="titulo32" class="form-control" placeholder="Subtitulo Contact" aria-label="With textarea"></textarea>
+                            <div class="input-group-btn">
+                                <button id="actualizar32" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos4" >
+                        <h2> Sección Contact Mail</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo33" type="text" class="form-control" placeholder="example@gmail.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar33" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos4" >
+                        <h2> Sección Contact Teléfono</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo34" type="text" class="form-control" placeholder="Telefono" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar34" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos4" >
+                        <h2> Sección Contact "Where find us"</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo35" type="text" class="form-control" placeholder="texto: 'Donde estamos'" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar35" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos4" >
+                        <h2> Sección Contact Dirección1</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo36" type="text" class="form-control" placeholder="Dirección 1" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar36" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos4" >
+                        <h2> Sección Contact Dirección2</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo37" type="text" class="form-control" placeholder="Dirección 2" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar37" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6">           
+                        <h2>Seción Status 1</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo42" type="text" class="form-control" placeholder="Premios" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar42" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6" >
+                        <h2> Cantidad Status 1</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo43" type="number" class="form-control" placeholder="Cantidad de premios" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar43" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6">           
+                        <h2>Seción Status 2</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo44" type="text" class="form-control" placeholder="Tasas de café" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar44" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6" >
+                        <h2> Cantidad Status 2</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo45" type="number" class="form-control" placeholder="Cantidad de tasas" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar45" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6">           
+                        <h2>Seción Status 3</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo46" type="text" class="form-control" placeholder="Sesiones fotogáficas" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar46" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6" >
+                        <h2> Cantidad Status 3</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo47" type="number" class="form-control" placeholder="Cantidad de sesiones" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar47" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6">           
+                        <h2>Seción Status 4</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo48" type="text" class="form-control" placeholder="Clientes satisfechos" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar48" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos6" >
+                        <h2> Cantidad Status 4</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo49" type="number" class="form-control" placeholder="Cantidad de clientes" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar49" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos5">          
+                        <h2> Sección Redes Título</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo38" type="text" class="form-control" placeholder="Siganos..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar38" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos5" >
+                        <h2> Link Facebook</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo39" type="text" class="form-control" placeholder="facebook.com/...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar39" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos5" >
+                        <h2> Link Instagram</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo40" type="text" class="form-control" placeholder="instagram.com/...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar40" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos5" >
+                        <h2> Link Youtube</h2>
+                        <div class="input-group mb-3">          
+                            <input id="titulo41" type="text" class="form-control" placeholder="youtube.com/...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <button id="actualizar41" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textos7">
+                        <span id="opacity_admin" style="display:none">{{opacity}}</span>
+                        <div id="titulo_head"><h1>Imagen de cabecera</h1></div>
+                        <div class="container">
+                            <h3>Foto actual</h3>
+                            <div class="shadow-overlay"></div>
+                            <img id="imagen_cabecera" src="images/head/foto_head.jpg" title="Foto actual">
+                        
+                        </div>
+                        <hr>
+                        <form action="http://localhost:3200/upHead" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                
+                                <input type="file" class="form-control-file" id="image" name="file">                  
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="mostrar" value="Subir">
+                        </form>
+                        <br>
+                        <div id="opaci" class="input-group">          
+                            <input id="opacity" type="text" class="form-control" placeholder="Cambiar opacidad de imagen">
+                            <div class="input-group-append">
+                                <button id="opacity-btn" class="btn btn-primary" type="button">Actualizar</button>
+                            </div>
+                        </div>
+                        <hr>
+
+                    </div>
+                    <div class="textos7">
+                        <div id="titulo_head"><h1>Imagenes del portafoilio Bodas</h1></div>
+                        <div class="container">
+                            <h3>Foto 1 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-lamp.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port6" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port6" name="file2"> 
+                                <input type="number" value="6" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port6" value="Subir">
+                        </form>
+                        <hr>
+                        
+                        <div class="container">
+                            <h3>Foto 2 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-salad.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port2" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port2" name="file2"> 
+                                <input type="number" value="2" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port2" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 3 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-woodcraft.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port3" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port3" name="file2"> 
+                                <input type="number" value="3" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port3" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 4 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-liberty.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port4" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port4" name="file2"> 
+                                <input type="number" value="4" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port4" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 5 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-fuji.jpg" title="Foto actual">
+                        
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port1" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port1" name="file2"> 
+                                <input type="number" value="1" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 6 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-shutterbug.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port5" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port5" name="file2"> 
+                                <input type="number" value="5" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port5" value="Subir">
+                        </form>
+                        <hr>
+                        
+
+                    </div>
+                    <div class="textos7">
+                        <div id="titulo_head"><h1>Imagenes del portafoilio quinces</h1></div>
+                        <div class="container">
+                            <h3>Foto 1 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.1.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port1.1" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port1.1" name="file2"> 
+                                <input type="number" value="7" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port6" value="Subir">
+                        </form>
+                        <hr>
+                        
+                        <div class="container">
+                            <h3>Foto 2 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.2.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port2" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port2" name="file2"> 
+                                <input type="number" value="8" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port2" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 3 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.3.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port3" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port3" name="file2"> 
+                                <input type="number" value="9" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port3" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 4 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.4.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port4" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port4" name="file2"> 
+                                <input type="number" value="10" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port4" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 5 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.5.jpg" title="Foto actual">
+                        
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port1" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port1" name="file2"> 
+                                <input type="number" value="11" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port" value="Subir">
+                        </form>
+                        <hr>
+                        <div class="container">
+                            <h3>Foto 6 actual</h3>
+                            <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.6.jpg" title="Foto actual">
+                            
+                        </div>
+                        <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
+                            <h1>Cambiar imagen</h1>
+                            <div class="form-group">
+                                <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <h3>Imagen en png con para la galería la cual
+                                    se mostrará en la web en 624 x 416 píxeles.
+                                </h3>
+                                <input type="file" class="form-control-file" id="image_port5" name="file"> 
+                                <hr>          
+                                <h3>Imagen en png la cual se mostrará en la sección principal</h3>
+                                <input type="file" class="form-control-file" id="image_port5" name="file2"> 
+                                <input type="number" value="12" style="display:none" name="code">                 
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="subir_port5" value="Subir">
+                        </form>
+                        <hr>
+                        
+
+                    </div>
+                </div>
+            </div>
         </div>
-        {{!-- Seccion Imagenes 15 --}}
-        <div class="textos7">
-            <div id="titulo_head"><h1>Imagenes del portafoilio quinces</h1></div>
-            <div class="container">
-                <h3>Foto 1 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.1.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port1.1" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port1.1" name="file2"> 
-                    <input type="number" value="7" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port6" value="Subir">
-            </form>
-            <hr>
-            
-            <div class="container">
-                <h3>Foto 2 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.2.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port2" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port2" name="file2"> 
-                    <input type="number" value="8" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port2" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 3 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.3.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port3" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port3" name="file2"> 
-                    <input type="number" value="9" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port3" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 4 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.4.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port4" name="file"> 
-                    <hr>          
-                    <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port4" name="file2"> 
-                    <input type="number" value="10" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port4" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 5 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.5.jpg" title="Foto actual">
-               
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port1" name="file"> 
-                    <hr>          
-                    <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port1" name="file2"> 
-                    <input type="number" value="11" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port" value="Subir">
-            </form>
-            <hr>
-            <div class="container">
-                <h3>Foto 6 actual</h3>
-                <img id="imagen_portafolio" src="images/portfolio/gallery/g-15.6.jpg" title="Foto actual">
-                
-            </div>
-            <form action="http://localhost:3200/upPort" method="POST" enctype="multipart/form-data">
-                <h1>Cambiar imagen</h1>
-                <div class="form-group">
-                    <input id="titulo7" name="title" type="text" class="form-control" placeholder="Titulo" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="cat" type="text" class="form-control" placeholder="Categoria" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="projLink" type="text" class="form-control" placeholder="Link del proyecto" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <input id="titulo1" name="description" type="text" class="form-control" placeholder="Descripción" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <h3>Imagen en png con para la galería la cual
-                        se mostrará en la web en 624 x 416 píxeles.
-                    </h3>
-                    <input type="file" class="form-control-file" id="image_port5" name="file"> 
-                    <hr>          
-                     <h3>Imagen en png la cual se mostrará en la sección principal</h3>
-                    <input type="file" class="form-control-file" id="image_port5" name="file2"> 
-                    <input type="number" value="12" style="display:none" name="code">                 
-                </div>
-                 <input type="submit" class="btn btn-primary" id="subir_port5" value="Subir">
-            </form>
-            <hr>
-            
-
-        </div>
-          {{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-        <script src="js/admin_web.js"></script>
+    </section>
+        {{!-- <div class="row">
+            <h2>Visitas a la pagina:<span>{{nro_visitas}}1890</span></h2>
+            <h2>Visitas a la pagina:<span>{{nro_visitas}}</span></h2>
+        </div> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/admin_web.js"></script>
+     <script src="js/informe.js"></script>
 </body>
 </html>

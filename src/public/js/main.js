@@ -6,6 +6,33 @@
 (function($) {
 
     "use strict";
+    var opacity = "0.95";
+    $.ajax({
+        url:"http://localhost:3200/opacity",
+        type:"GET",
+        success:function(res){
+            console.log(res);
+            opacity=res;
+            $('head').append('<style>.column:before{width:800px !important;}</style>');
+            $(".s-home").append(`<style>.s-home:before{opacity:${opacity};}</style>`)
+                // "opacity":`${opacity}`,
+                // "display": "block",
+                // "content": "",
+                // "position": "absolute",
+                // "top": "0",
+                // "left": "0",
+                // "width": "100%",
+                // "height": "100%",
+                
+                // /* opacity: 0.8; */
+                // "background-color": "#000000"
+            
+        },
+        error: function(error,status){
+            console.log("No se pudo modificar la opacidad "," Status: ", status, " error: ",error);
+        }
+    });
+    
     
     var cfg = {
         scrollDuration : 800, // smoothscroll duration

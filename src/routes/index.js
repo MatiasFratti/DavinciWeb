@@ -4,8 +4,13 @@ const Usuario = require('../models/user');
 const Textos = require('../models/textos');
 const Imagen = require('../models/image');
 const Protfolio = require('../models/protfolio_img');
+const Opacity = require("../models/opacity");
+const Informe = require("../models/informe");
 const fs = require('fs');
 const httpStatus = require('http');
+
+var ip = require("ip");
+
 var path_head = "./src/public/images/head/foto_head.jpg";
 var id_img = null;
 var head_img = null;
@@ -17,11 +22,25 @@ var error = null;
 
 router.get('/',async(req,res,next)=>{
     new Textos();
+    
     const txt = await Textos.find();
     console.log(txt[1].text);
     const img = await Imagen.find();
     const imgPort = await Protfolio.find();
-    
+    var informe = new Informe();
+    var old_info = await Informe.findOne().sort({fecha:-1}).limit(1);
+    var _ip=ip.address();
+    var _fecha = Date.now("dd/mm/yyyy");
+    var modelInfo = {
+        visitas:(old_info.visitas+1),
+        fecha:_fecha,
+        ip:_ip
+    }
+
+    Informe.create({visitas:modelInfo.visitas,fecha:modelInfo.fecha,ip:modelInfo.ip},function(err){
+        (err) ? console.log(err) : console.log("Registro guardado")
+    })
+    console.log( ip.address() );
     res.render('layout/main',{
         title:'DavinciRaleigh',
          titulo1: txt[0].text,
@@ -176,9 +195,14 @@ router.get('/admin',async (req,res)=>{
         res.sendStatus(404);
     }
     else if(req.session.name=='Matias'){
-        new Imagen()
+        new Imagen();
         const image = await Imagen.find();
-        console.log(Imagen.title);
+        new Opacity();
+        const opacity = await Opacity.find();
+        
+        new Informe()
+        var informe = await Informe.findOne().sort({fecha:-1}).limit(1);
+        console.log(informe);
         if(image[0]!=null){
              head_img = image[0]._id+"."+image[0].extension;
              console.log(head_img);
@@ -186,6 +210,8 @@ router.get('/admin',async (req,res)=>{
                 _message:msj,
                 err: _err,
                 head: head_img,
+                opacity:opacity[0].opacity,
+                nro_visitas: informe.visitas
                 
             });
         }
@@ -340,9 +366,7 @@ router.post('/upPort',async (req,res)=>{
         else{
             console.log('se pudo actualizar');
         }
-    });
-    
-    
+    });   
     res.redirect('admin');
 });
 router.post('/upService',async(req,res,next)=>{
@@ -377,4 +401,41 @@ router.post('/close',function(req,res,next){
     }
      next();
 });
+router.get('/opacity',async function(req,res,next){
+    const id = "5ce4b42cdeaf222230c2c926"
+    new Opacity();
+    var opacity = await Opacity.find();
+       const op = opacity[0].opacity;
+       console.log(op);
+    res.json(op);    
+    next();
+});
+router.post('/opacity',async function(req,res,next){
+    const id = "5ce4b42cdeaf222230c2c926"
+    new Opacity();
+    console.log(req.body.opacity," req");
+    var opacity = await Opacity.update({_id:id},{$set:{opacity:req.body.opacity}},function(err){
+        if(err){
+            console.log("No se pudo actualizar");
+        }
+    });
+    
+    res.render('admin'); 
+    
+});
+router.get('/informe',async function(req,res,next){
+    console.log(req.fecha);
+    new Informe();
+    var informe = await Informe.find();
+    console.log(informe.length," informe");
+    var info = [{
+        visit:null,
+        fecha:""
+    }];
+    for(var i=0; i<informe.length; i++){
+        info.push(informe[i].visitas,informe[i].fecha);
+        console.log(informe[i].fecha);
+    }
+    return res.json(info);
+})
 module.exports = router;

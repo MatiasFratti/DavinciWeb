@@ -26,6 +26,7 @@ app.engine('.hbs',exphbs({
 }));
 app.set('view engine','.hbs');
 //middlewares
+app.set('trust proxy', true);
 // app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
