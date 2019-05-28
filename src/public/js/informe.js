@@ -229,8 +229,13 @@ visitaArray4=[],
 visitaArray5=[],
 visitaArray6=[];
 function visitasPorMeses(m5,m4,m3,m2,m1,m0){
-    
-    console.log("informe: ",informe[3]," m5:",m5,m4,m3,m2,m1,m0);
+    visitaArray1=[];
+    visitaArray2=[];
+    visitaArray3=[];
+    visitaArray4=[];
+    visitaArray5=[];
+    visitaArray6=[];
+    console.log("informe: ",informe[2]," m5:",m5,m4,m3,m2,m1,m0);
     for(var i=1; i<informe.length; i++){
         console.log("primer mes: ",informe[i*2]," : ",m5);
         if(informe[i*2]==m5){
@@ -260,25 +265,17 @@ function visitasPorMeses(m5,m4,m3,m2,m1,m0){
     visitasMes3 = visitaArray3.length;
     visitasMes4 = visitaArray4.length;
     visitasMes5 = visitaArray5.length;
-    visitasMes6 = visitaArray6.length;        
+    visitasMes6 = visitaArray6.length;       
+    console.log(visitasMes1,visitasMes2, visitasMes3,visitasMes4,visitasMes5,visitasMes6); 
 }
 var i=1;
 function GraficaGlobal(v1,v2, v3,v4,v5,v6,m5,m4,m3,m2,m1,m0){   
-    // console.log(filtro);
-    if(filtro){
-        i++;
-        v1=visitasMes1/i;
-        v2=visitasMes2/i;
-        v3=visitasMes3/i;
-        v4=visitasMes4/i;
-        v5=visitasMes5/i;
-        v6=visitasMes6/i;     
-    }
+    
     $(function($){
         $('#grafica').highcharts({
-            title:{text:'Estádisticas de la Web de '+fecha.getFullYear()},
+            title:{text:'Estádisticas de visitas de la  Web en '+fecha.getFullYear()},
             xAxis:{categories:[m5,m4,m3,m2,m1,m0]},
-            yAxis:{title:'Porcentaje %',plotLines:[{value:0,width:1,color:'#000033'}]},
+            yAxis:{title:'Porcentaje %',plotLines:[{value:0,width:1,color:'#000033',background:"#D8D8D8"}]},
             tooltip:{valueSuffix:'Visitas'},           
             series:[{type: 'column',name: 'Visitas',data: [v1,v2,v3,v4,v5,v6]},         
         ]       
@@ -286,4 +283,109 @@ function GraficaGlobal(v1,v2, v3,v4,v5,v6,m5,m4,m3,m2,m1,m0){
            
     });  
     filtro = true;
+}
+
+function mesesParaGrafica(_mes){
+    if(_mes>4){
+        mes1=(_mes-4);
+        mes2=(_mes-3);
+        mes3=(_mes-2);
+        mes4=(_mes-1);
+        mes5=_mes;
+        mes6=(_mes+1);
+        month[5]=NombreDeMeses(_mes-4);
+        month[4]=NombreDeMeses(_mes-3);
+        month[3]=NombreDeMeses(_mes-2);
+        month[2]=NombreDeMeses(_mes-1);
+        month[1]=NombreDeMeses(_mes);
+        month[0]=NombreDeMeses(_mes+1);
+    }
+    switch(_mes){
+        case 4: mes1=(12);
+        mes2=(_mes-3);
+        mes3=(_mes-2);
+        mes4=(_mes-1);
+        mes5=_mes;
+        mes6=(_mes+1);
+        month[5]=NombreDeMeses(12);
+        month[4]=NombreDeMeses(_mes-3);
+        month[3]=NombreDeMeses(_mes-2);
+        month[2]=NombreDeMeses(_mes-1);
+        month[1]=NombreDeMeses(_mes);
+        month[0]=NombreDeMeses(_mes+1);
+        break;
+        case 3:
+        mes1=(11);
+        mes2=(12);
+        mes3=(_mes-2);
+        mes4=(_mes-1);
+        mes5=_mes;
+        mes6=(_mes+1);
+        month[5]=NombreDeMeses(11);
+        month[4]=NombreDeMeses(12);
+        month[3]=NombreDeMeses(_mes-2);
+        month[2]=NombreDeMeses(_mes-1);
+        month[1]=NombreDeMeses(_mes);
+        month[0]=NombreDeMeses(_mes+1);
+        break;
+        case 2:
+        mes1=(10);
+        mes2=(11);
+        mes3=(12);
+        mes4=(_mes-1);
+        mes5=_mes;
+        mes6=(_mes+1);
+        month[5]=NombreDeMeses(10);
+        month[4]=NombreDeMeses(11);
+        month[3]=NombreDeMeses(12);
+        month[2]=NombreDeMeses(_mes-1);
+        month[1]=NombreDeMeses(_mes);
+        month[0]=NombreDeMeses(_mes+1);
+        break;
+        case 1:
+        mes1=(9);
+        mes2=(10);
+        mes3=(11);
+        mes4=(12);
+        mes5=_mes;
+        mes6=(_mes+1);
+        month[5]=NombreDeMeses(9);
+        month[4]=NombreDeMeses(10);
+        month[3]=NombreDeMeses(11);
+        month[2]=NombreDeMeses(12);
+        month[1]=NombreDeMeses(_mes);
+        month[0]=NombreDeMeses(_mes+1);
+        break;
+        case 0:
+        mes1=(8);
+        mes2=(9);
+        mes3=(10);
+        mes4=(11);
+        mes5=12;
+        mes6=(_mes+1);
+        month[5]=NombreDeMeses(8);
+        month[4]=NombreDeMeses(9);
+        month[3]=NombreDeMeses(10);
+        month[2]=NombreDeMeses(11);
+        month[1]=NombreDeMeses(12);
+        month[0]=NombreDeMeses(_mes+1);
+        break;
+    }
+
+}
+var mes = $(".meses");
+async function mesParaGrafica(_mes){
+    
+    visitasMes1 =0;
+    visitasMes2 = 0;
+    visitasMes3 = 0;
+    visitasMes4 = 0;
+    visitasMes5 = 0;
+    visitasMes6 = 0; 
+    console.log(visitasMes1,visitasMes2, visitasMes3,visitasMes4,visitasMes5,visitasMes6);
+    await mesesParaGrafica(_mes);
+    console.log(mes1,mes2,mes3,mes4,mes5,mes6,"Nueva");
+    await visitasPorMeses(mes1,mes2,mes3,mes4,mes5,mes6);
+    // console.log(visitasMes1,visitasMes2, visitasMes3,visitasMes4,visitasMes5,visitasMes6,(month[5]),(month[4]),(month[3]),(month[2]),(month[1]),(month[0]));
+    await GraficaGlobal(visitasMes1,visitasMes2, visitasMes3,visitasMes4,visitasMes5,visitasMes6,(month[5]),(month[4]),(month[3]),(month[2]),(month[1]),(month[0]));
 }

@@ -1,7 +1,10 @@
 body{
     height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     /* background: linear-gradient(to bottom, #a9e4f7 0%,#0fb4e7 100%); */
-    background-color: grey;
+    /* background-color: grey; */
     /* background: linear-gradient(to bottom,black 20%,#121313 50%,#2a2c2e91 100%) no-repeat;
     object-fit: cover; */
 }
@@ -151,7 +154,7 @@ ul li a:hover{
 /*Plantilla bootstrap*/
 /* Navbar */
 .navbar{
-    min-height: 33px !important;
+    min-height: 35px !important;
     margin-bottom:0 !important;
     border-radius:0 !important;;
   }
@@ -240,23 +243,110 @@ ul li a:hover{
     text-align:center;
   }
   
-  #login{
+  /* #login{
     margin-top:30px;
-  }
+  } */
 #barra_horizontal{
   position: fixed;
-  margin-top: 7px;
-  margin-left: -97px;
+  margin-top: 19px;
+  margin-left:-90px;
+  
 }
 #inputs{
-  /* margin-top: 170px; */
   margin-bottom: 60px;
 }
 #grafica{
-  /* margin-left: 18px; */
-  /* margin-right: -40px; */
-  margin-top: 7px;
+  margin-top: 3px;
+  margin-left: -2px;
+  border-radius: 3px;
+  height:349px; 
+  width: 72rem;
+  border: solid 1px #D8D8D8;
+  display: none;
+}
+/* #fecha1{
+  margin-left: 90px;
+  display: inline;
+}
+#fecha2{
+  margin-top: -54px;
+  margin-left:-20px;
+} */
+#btn_fecha{
+ width: 250px;
+}
+.busqueda{
+  margin-left:285px;
+  margin-top: 3px;
+}
+#inputs{
+  border: solid 1px #D8D8D8;
   border-radius: 4px;
-  height:105% ; 
-  width: 90rem;
+  width: 75rem;
+  height:410px;
+  
+}
+#titulo_buscar{
+  margin-left: 60rem;
+  margin-bottom: -1px;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #ab5226;
+  }
+  #grafica{
+    margin-top: 7px;
+    border-radius: 3px;
+    margin-left: 150px;
+    height:20pxpx; 
+    width: 35rem;
+    border: solid 1px #D8D8D8;
+    display: none;
+  }
+  #barra_horizontal{
+    position: fixed;
+    margin-top: 7px;
+    width: 130px;
+    margin-left: 0px;
+  }
+}
+@media only screen and ( min-height: 768px) and (max-width: 1000px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #ab5226;
+  }
+  #grafica{
+    margin-top: 7px;
+    border-radius: 3px;
+    margin-left: 200px;
+    height:20px; 
+    width: 35rem;
+    border: solid 1px #D8D8D8;
+    display: none;
+  }
+  #barra_horizontal{
+    position: fixed;
+    margin-top: 7px;
+    width: 230px;
+    margin-left: -20px;
+  }
 }

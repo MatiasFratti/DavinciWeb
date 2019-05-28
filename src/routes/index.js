@@ -202,7 +202,7 @@ router.get('/admin',async (req,res)=>{
         
         new Informe()
         var informe = await Informe.findOne().sort({fecha:-1}).limit(1);
-        console.log(informe);
+        // console.log(informe);
         if(image[0]!=null){
              head_img = image[0]._id+"."+image[0].extension;
              console.log(head_img);
@@ -424,7 +424,7 @@ router.post('/opacity',async function(req,res,next){
     
 });
 router.get('/informe',async function(req,res,next){
-    console.log(req.fecha);
+    // console.log(req.fecha);
     new Informe();
     var informe = await Informe.find();
     console.log(informe.length," informe");

@@ -9,16 +9,18 @@
 <link rel="icon" href="https://static.wixstatic.com/media/2b8da3_01cb2723551745448b9f827be88a36f4.png/v1/fill/w_74,h_68,al_c,q_80,usm_0.66_1.00_0.01/2b8da3_01cb2723551745448b9f827be88a36f4.webp" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 {{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{{!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> --}}
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
     {{!-- <div class="contenedor" style="position:fixed; width:100%">     --}}
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style=" min-height: 35px">
             <div class="container">
                 <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -73,20 +75,55 @@
                         <a href="index.html" class="list-group-item active color-principal">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Panel de Control
                         </a>
-                        <a id="grafic" href="" class="list-group-item"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Visitas hoy <span class="badge">{{nro_visitas}}</span></a>
+                        <a id="grafic" href="" class="list-group-item"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Visitas <span class="badge">{{nro_visitas}}</span></a>
                         <a id="textos" href="" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Títulos</a>
                         <a id="textos2" href="" class="list-group-item"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Sección Works</a>
                         <a id="textos1" href="" class="list-group-item"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Sección About</a>
                         <a id="textos3" href="" class="list-group-item"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Sección Service</a>
                         <a id="textos4" href="" class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Sección Contacto</a>
                         <a id="textos6" href="" class="list-group-item"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Sección Status</a>
-                        <a id="textos5" href="" class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Redes Sociales</a>
-                        <a id="textos7" href="" class="list-group-item"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Imágenes</a>
+                        <a id="textos5" href="" class="list-group-item"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Redes Sociales</a>
+                        <a id="textos7" href="" class="list-group-item"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Imágenes</a>
                         
                     </div>
                 </div>      
+                <p id="titulo_buscar"><strong>Busqueda por mes</strong></p>
                 <div id="inputs" class="col-md-7 col-md-offset-3">
-                    <div id="grafica"></div>                    
+                    
+                    <div class="busqueda">
+                        <div id="btn_fecha" class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Buscar por mes
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li class="meses" onclick="mesParaGrafica(0)"><a href="#">Enero</a></li>
+                                <li class="meses" onclick="mesParaGrafica(1)"><a href="#">Febrero</a></li>
+                                <li class="meses" onclick="mesParaGrafica(2)"><a href="#">Marzo</a></li>
+                                <li class="meses" onclick="mesParaGrafica(3)"><a href="#">Abril</a></li>
+                                <li class="meses" onclick="mesParaGrafica(4)"><a href="#">Mayo</a></li>
+                                <li class="meses" onclick="mesParaGrafica(5)"><a href="#">Junio</a></li>
+                                <li class="meses" onclick="mesParaGrafica(6)"><a href="#">Julio</a></li>
+                                <li class="meses" onclick="mesParaGrafica(7)"><a href="#">Agosto</a></li>
+                                <li class="meses" onclick="mesParaGrafica(8)"><a href="#">Setiembre</a></li>
+                                <li class="meses" onclick="mesParaGrafica(9)"><a href="#">Octubre</a></li>
+                                <li class="meses" onclick="mesParaGrafica(10)"><a href="#">Noviembre</a></li>
+                                <li class="meses" onclick="mesParaGrafica(11)"><a href="#">Diciembre</a></li>                          
+                            </ul>
+                            </div>
+                    </div>    
+                    
+                    <div id="grafica">
+                              {{!-- Grafica inicial --}}
+                    </div> 
+                     <script>
+                         ( function() {
+                            $( "#fecha1" ).datepicker({ dateFormat: 'dd-mm-yy',yearRange: "2019:2022" });
+                            
+                        });
+                        ( function() {
+                            $( "#fecha2" ).datepicker({ dateFormat: 'dd-mm-yy',yearRange: "2019:2022" });
+                            
+                        });
+                     </script>              
                     <div class="textos" >
                         <h2>Título principal de la web</h2>
                         <div class="input-group">          
@@ -119,7 +156,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo15" class="form-control" placeholder="Título de sección Works" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar15" class="btn btn-primary" style="height:55px" type="button">Actualizar</button>
+                                <button id="actualizar15" class="btn btn-primary" style="height:52px" type="button">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -164,7 +201,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo7" class="form-control" placeholder="Descripción item 1" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar7" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar7" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -182,7 +219,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo9" class="form-control" placeholder="Descripción item 2" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar9" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar9" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -201,7 +238,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo11" class="form-control" placeholder="Descripción item 3" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar11" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar11" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -219,7 +256,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo13" class="form-control" placeholder="Descripción item 4" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar13" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar13" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div> 
@@ -237,7 +274,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo17" class="form-control" placeholder="Título de sección Services" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar17" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar17" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>                   
                     </div>
@@ -246,7 +283,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo18" class="form-control" placeholder="Descripción de sección Services" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar18" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar18" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -275,7 +312,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo20" class="form-control" placeholder="Contenido Item 1" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar20" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar20" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div> 
@@ -305,7 +342,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo22" class="form-control" placeholder="Contenido Item 2" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar22" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar22" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -333,7 +370,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo24" class="form-control" placeholder="Contenido Item 3" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar24" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar24" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -362,7 +399,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo26" class="form-control" placeholder="Contenido Item 4" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar26" class="btn btn-primary" type="button">Actualizar</button>
+                                <button id="actualizar26" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>      
                     </div>
@@ -391,7 +428,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo28" class="form-control" placeholder="Contenido Item 5" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar28" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar28" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -419,7 +456,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo30" class="form-control" placeholder="Contenido Item 6" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar30" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar30" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -437,7 +474,7 @@
                         <div class="input-group mb-3">          
                             <textarea id="titulo32" class="form-control" placeholder="Subtitulo Contact" aria-label="With textarea"></textarea>
                             <div class="input-group-btn">
-                                <button id="actualizar32" class="btn btn-primary" type="button" style="height:55px">Actualizar</button>
+                                <button id="actualizar32" class="btn btn-primary" type="button" style="height:52px">Actualizar</button>
                             </div>
                         </div>
                     </div>
