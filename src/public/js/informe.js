@@ -15,8 +15,14 @@ var informe =[{
     visit:"",
     date:""
 }];
+var informe2 =[{
+    visit2:"",
+    date2:""
+}];
 var visit =0;
 var date="";
+var visit2 =0;
+var date2="";
 var info = $("#info");
 var anio_actual="";
 function getFechas(){
@@ -33,34 +39,49 @@ function getFechas(){
                     console.log("junio");
                     if(i%2==0){
                         anio_actual = res[i];
-                        // console.log(anio_actual.substr(0,4), " :: ", fecha.getFullYear())
+                         console.log(anio_actual.substr(0,4), " :: ", fecha.getFullYear()-1)
                         if(anio_actual.substr(0,4) == fecha.getFullYear()){
                             date = res[i];
                             
-                        informe.push(visit,date.substr(5,2)); 
-                        console.log(informe.date);
+                            informe.push(visit,date.substr(5,2)); 
+                            
+                        }
+                        if(anio_actual.substr(0,4)===(fecha.getFullYear()-1)){
+                            date2 = res[i];
+                            informe2.push(visit2,date2.substr(5,2));
+                            console.log("222",informe2.date);
                         }                                 
                     }
                     else{
                         if(anio_actual.substr(0,4) == fecha.getFullYear()){
                             dvisit = res[i];
-                        }                                    
+                        }  
+                        if(anio_actual.substr(0,4)===(fecha.getFullYear()-1)){
+                            dvisit2 = res[i];
+                        }                                  
                     }
                 }
                 if(fecha.getMonth()<5){
                     if(i%2==0){
                         anio_actual = res[i];
-                        console.log(anio_actual.substr(0,4), " :: ", fecha.getFullYear())
-                        if(anio_actual.substr(0,4) == fecha.getFullYear() || anio_actual.substr(0,4) == (fecha.getFullYear()-1)){
-                            date = res[i];
-                            
-                        informe.push(visit,date.substr(5,2)); 
-                        }                                 
+                        console.log(anio_actual.substr(0,4), " :: ", fecha.getFullYear()-1)
+                        if(anio_actual.substr(0,4) == fecha.getFullYear()) {
+                            date = res[i];               
+                            informe.push(visit,date.substr(5,2)); 
+                        } 
+                        if(anio_actual.substr(0,4) == (fecha.getFullYear()-1)){
+                            date2 = res[i];               
+                            informe2.push(visit2,date2.substr(5,2)); 
+                            console.log("222",informe2.date);
+                        }                                
                     }
                     else{
-                        if(anio_actual.substr(0,4) == fecha.getFullYear() || anio_actual.substr(0,4) == (fecha.getFullYear()-1)){
+                        if(anio_actual.substr(0,4) == fecha.getFullYear()){
                             dvisit = res[i];
-                        }                                    
+                        }    
+                        if(anio_actual.substr(0,4) == (fecha.getFullYear()-1)){
+                            dvisit2 = res[i];
+                        }                                
                     }
                 }
                 
@@ -236,36 +257,185 @@ function visitasPorMeses(m5,m4,m3,m2,m1,m0){
     visitaArray5=[];
     visitaArray6=[];
     console.log("informe: ",informe[2]," m5:",m5,m4,m3,m2,m1,m0);
+    console.log("informe2: ",informe2[2]," m5:",m5,m4,m3,m2,m1,m0);
     for(var i=1; i<informe.length; i++){
         console.log("primer mes: ",informe[i*2]," : ",m5);
-        if(informe[i*2]==m5){
+        if(m0>5){
+            if(informe[i*2]==m5){
            
-            visitaArray1.push(informe[i]);
+                visitaArray1.push(informe[i]);
+            }
+            if(informe[i*2]==m4){
+                
+                visitaArray2.push(informe[i]);
+            }
+            if(informe[i*2]==m3){
+                
+                visitaArray3.push(informe[i]);
+            }
+            if(informe[i*2]==m2){
+                visitaArray4.push(informe[i]);
+            }
+            if(informe[i*2]==m1){
+                visitaArray5.push(informe[i]);
+            }
+            if(informe[i*2]==m0){
+                visitaArray6.push(informe[i]);
+            }
+            visitasMes1 = visitaArray1.length;
+            visitasMes2 = visitaArray2.length;
+            visitasMes3 = visitaArray3.length;
+            visitasMes4 = visitaArray4.length;
+            visitasMes5 = visitaArray5.length;
+            visitasMes6 = visitaArray6.length;
         }
-        if(informe[i*2]==m4){
-            
-            visitaArray2.push(informe[i]);
+        if(m0==5){
+            if(informe2[i*2]==m5){
+                
+                visitaArray1.push(informe2[i]);
+            }
+            if(informe[i*2]==m4){
+                
+                visitaArray2.push(informe[i]);
+            }
+            if(informe[i*2]==m3){
+                
+                visitaArray3.push(informe[i]);
+            }
+            if(informe[i*2]==m2){
+                visitaArray4.push(informe[i]);
+            }
+            if(informe[i*2]==m1){
+                visitaArray5.push(informe[i]);
+            }
+            if(informe[i*2]==m0){
+                visitaArray6.push(informe[i]);
+            }
+            visitasMes1 = visitaArray1.length;
+            visitasMes2 = visitaArray2.length;
+            visitasMes3 = visitaArray3.length;
+            visitasMes4 = visitaArray4.length;
+            visitasMes5 = visitaArray5.length;
+            visitasMes6 = visitaArray6.length;
         }
-        if(informe[i*2]==m3){
-            
-            visitaArray3.push(informe[i]);
+        if(m0==4){
+            if(informe2[i*2]==m5){
+                
+                visitaArray1.push(informe2[i]);
+            }
+            if(informe2[i*2]==m4){
+                
+                visitaArray2.push(informe2[i]);
+            }
+            if(informe[i*2]==m3){
+                
+                visitaArray3.push(informe[i]);
+            }
+            if(informe[i*2]==m2){
+                visitaArray4.push(informe[i]);
+            }
+            if(informe[i*2]==m1){
+                visitaArray5.push(informe[i]);
+            }
+            if(informe[i*2]==m0){
+                visitaArray6.push(informe[i]);
+            }
+            visitasMes1 = visitaArray1.length;
+            visitasMes2 = visitaArray2.length;
+            visitasMes3 = visitaArray3.length;
+            visitasMes4 = visitaArray4.length;
+            visitasMes5 = visitaArray5.length;
+            visitasMes6 = visitaArray6.length;
         }
-        if(informe[i*2]==m2){
-            visitaArray4.push(informe[i]);
+        if(m0==3){
+            if(informe2[i*2]==m5){
+                
+                visitaArray1.push(informe2[i]);
+            }
+            if(informe2[i*2]==m4){
+                
+                visitaArray2.push(informe2[i]);
+            }
+            if(informe2[i*2]==m3){
+                
+                visitaArray3.push(informe2[i]);
+            }
+            if(informe[i*2]==m2){
+                visitaArray4.push(informe[i]);
+            }
+            if(informe[i*2]==m1){
+                visitaArray5.push(informe[i]);
+            }
+            if(informe[i*2]==m0){
+                visitaArray6.push(informe[i]);
+            }
+            visitasMes1 = visitaArray1.length;
+            visitasMes2 = visitaArray2.length;
+            visitasMes3 = visitaArray3.length;
+            visitasMes4 = visitaArray4.length;
+            visitasMes5 = visitaArray5.length;
+            visitasMes6 = visitaArray6.length;
         }
-        if(informe[i*2]==m1){
-            visitaArray5.push(informe[i]);
+        if(m0==2){
+            if(informe2[i*2]==m5){
+                
+                visitaArray1.push(informe2[i]);
+            }
+            if(informe2[i*2]==m4){
+                
+                visitaArray2.push(informe2[i]);
+            }
+            if(informe2[i*2]==m3){
+                
+                visitaArray3.push(informe2[i]);
+            }
+            if(informe2[i*2]==m2){
+                visitaArray4.push(informe2[i]);
+            }
+            if(informe[i*2]==m1){
+                visitaArray5.push(informe[i]);
+            }
+            if(informe[i*2]==m0){
+                visitaArray6.push(informe[i]);
+            }
+            visitasMes1 = visitaArray1.length;
+            visitasMes2 = visitaArray2.length;
+            visitasMes3 = visitaArray3.length;
+            visitasMes4 = visitaArray4.length;
+            visitasMes5 = visitaArray5.length;
+            visitasMes6 = visitaArray6.length;
         }
-        if(informe[i*2]==m0){
-            visitaArray6.push(informe[i]);
+        if(m0==1){
+            if(informe2[i*2]==m5){
+                
+                visitaArray1.push(informe2[i]);
+            }
+            if(informe2[i*2]==m4){
+                
+                visitaArray2.push(informe2[i]);
+            }
+            if(informe2[i*2]==m3){
+                
+                visitaArray3.push(informe2[i]);
+            }
+            if(informe2[i*2]==m2){
+                visitaArray4.push(informe2[i]);
+            }
+            if(informe2[i*2]==m1){
+                visitaArray5.push(informe2[i]);
+            }
+            if(informe[i*2]==m0){
+                visitaArray6.push(informe[i]);
+            }
+            visitasMes1 = visitaArray1.length;
+            visitasMes2 = visitaArray2.length;
+            visitasMes3 = visitaArray3.length;
+            visitasMes4 = visitaArray4.length;
+            visitasMes5 = visitaArray5.length;
+            visitasMes6 = visitaArray6.length;
         }
     }
-    visitasMes1 = visitaArray1.length;
-    visitasMes2 = visitaArray2.length;
-    visitasMes3 = visitaArray3.length;
-    visitasMes4 = visitaArray4.length;
-    visitasMes5 = visitaArray5.length;
-    visitasMes6 = visitaArray6.length;       
+           
     console.log(visitasMes1,visitasMes2, visitasMes3,visitasMes4,visitasMes5,visitasMes6); 
 }
 var i=1;
@@ -376,7 +546,7 @@ function mesesParaGrafica(_mes){
 var mes = $(".meses");
 async function mesParaGrafica(_mes){
     
-    visitasMes1 =0;
+    visitasMes1 = 0;
     visitasMes2 = 0;
     visitasMes3 = 0;
     visitasMes4 = 0;
