@@ -43,82 +43,18 @@ h1{
 .textos4, .textos5, .textos6, .textos7 {
     width: 100%;
     margin: auto;
-    margin-left: 20%; 
+    /* margin-left: 20%;  */
     display:none;
     
 }
-/*
-#mensj{
-    width: 70%;
-    margin: auto;
-    margin-right:80px;
-    display: none;
-     
-}
-a {
-    margin-top: 7px;
-    margin-left: 30px;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-    border: 1.5px solid rgb(211, 207, 207);
-}
-input[type="file" i] {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    font-weight: bold;
-}*/
+
 #imagen_cabecera{
     width: 400px;
 }
 #imagen_portafolio{
     width: 400px;
 }/*
-.Inicio{
-    display: grid;
-    width: 800px;
-    margin-left: 390px;
-    margin-top: 36px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    object-fit: cover;
-}
-.icono{
-    width:340px;
-    height: 90px;
-    border: 1.5px solid rgb(211, 207, 207);
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    grid-column: auto;
-    grid-row: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 29px;
-    font-weight: 900;
-}
-.icono a{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 29px;
-    font-weight: 900;   
-}
-.icono:hover{
-   
-    background-color: white;
-    transform: scale(1.1, 1.1);
-    color: black;
-}
-ul li a:hover{
-    text-decoration: none;
-    border: 0.5px solid rgb(211, 207, 207);
-    background-color:#207cca;
-    transform: scale(1.1, 1.1);
-    color: black;
-}
+
 #error{
     display: none;
 }
@@ -248,7 +184,7 @@ ul li a:hover{
   } */
 #barra_horizontal{
   position: fixed;
-  margin-top: 19px;
+  /* margin-top: 1px; */
   margin-left:-90px;
   
 }
@@ -284,12 +220,14 @@ ul li a:hover{
   border-radius: 4px;
   width: 75rem;
   height:410px;
+  overflow: auto;
   
 }
 #titulo_buscar{
   margin-left: 60rem;
   margin-bottom: -1px;
 }
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #ecf0f1;

@@ -13,27 +13,27 @@
         success:function(res){
             console.log(res);
             opacity=res;
-            $('head').append('<style>.column:before{width:800px !important;}</style>');
-            $(".s-home").append(`<style>.s-home:before{opacity:${opacity};}</style>`)
-                // "opacity":`${opacity}`,
-                // "display": "block",
-                // "content": "",
-                // "position": "absolute",
-                // "top": "0",
-                // "left": "0",
-                // "width": "100%",
-                // "height": "100%",
-                
-                // /* opacity: 0.8; */
-                // "background-color": "#000000"
             
+            $(".s-home").append(`<style>.s-home:before{opacity:${opacity};}</style>`)
+                
         },
         error: function(error,status){
             console.log("No se pudo modificar la opacidad "," Status: ", status, " error: ",error);
         }
     });
-    
-    
+
+    $('#send').click(function(e){
+        var nombre = $('#nombre');
+        var email = $('#mc-email');
+        var asunto = $('#asunto');
+        var mensj = $('#mensj')
+        e.preventDefault();
+        $.post('http://localhost:3200/sendMail',{nombre:nombre.val(),email:email.val(),asunto:asunto.val(),mensj:mensj.val()},
+            function(data,status){
+                console.log("Status: ",status);
+            }
+        );
+    });   
     var cfg = {
         scrollDuration : 800, // smoothscroll duration
         mailChimpURL   : 'https://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e6957d85dc'   // mailchimp url

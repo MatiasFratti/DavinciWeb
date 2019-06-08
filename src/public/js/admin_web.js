@@ -18,7 +18,7 @@ Opacidad();
 $('#grafic').click(function(e){
     e.preventDefault();
     $('#grafica').css('display','block');
-    
+    $('.busqueda').css('display','block');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
     $('.textos2').css('display','none');
@@ -42,6 +42,7 @@ $('#textos0').click(function(e){
 });
 $('#textos').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('#grafica').css('display','none');
     $('.textos').css('display','block');
     $('.textos1').css('display','none');
@@ -70,6 +71,7 @@ $('#textos8').click(function(e){
 });
 $('#textos1').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos1').css('display','block');
     $('#grafica').css('display','none');
     $('.textos').css('display','none');
@@ -95,6 +97,7 @@ $('#textos9').click(function(e){
 });
 $('#textos2').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos2').css('display','block');
     $('#grafica').css('display','none');
     $('.textos').css('display','none');
@@ -108,6 +111,7 @@ $('#textos2').click(function(e){
 });
 $('#textos10').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos2').css('display','block');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
@@ -120,6 +124,7 @@ $('#textos10').click(function(e){
 });
 $('#textos3').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos3').css('display','block');
     $('#grafica').css('display','none');
     $('.textos').css('display','none');
@@ -133,6 +138,7 @@ $('#textos3').click(function(e){
 });
 $('#textos11').click(function(e){
     e.preventDefault();
+    
     $('.textos3').css('display','block');
     $('.textos').css('display','none');
     $('.textos1').css('display','none');
@@ -145,6 +151,7 @@ $('#textos11').click(function(e){
 });
 $('#textos4').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos4').css('display','block');
     $('#grafica').css('display','none');
     $('.textos').css('display','none');
@@ -170,6 +177,7 @@ $('#textos12').click(function(e){
 });
 $('#textos5').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos5').css('display','block');
     $('#grafica').css('display','none');
     $('.textos').css('display','none');
@@ -195,6 +203,7 @@ $('#textos13').click(function(e){
 });
 $('#textos6').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos6').css('display','block');
     $('#grafica').css('display','none');
     $('.textos').css('display','none');
@@ -220,6 +229,7 @@ $('#textos14').click(function(e){
 });
 $('#textos7').click(function(e){
     e.preventDefault();
+    $('.busqueda').css('display','none');
     $('.textos7').css('display','block');
     $('#grafica').css('display','none');
     $('.textos').css('display','none');

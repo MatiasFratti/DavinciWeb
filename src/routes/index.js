@@ -10,6 +10,7 @@ const fs = require('fs');
 const httpStatus = require('http');
 
 var ip = require("ip");
+var nodemailer = require('nodemailer');
 
 var path_head = "./src/public/images/head/foto_head.jpg";
 var id_img = null;
@@ -437,5 +438,35 @@ router.get('/informe',async function(req,res,next){
         console.log(informe[i].fecha);
     }
     return res.json(info);
-})
+});
+router.post('/sendMail', async function(req,res,next){
+    //code 33 es el atributo del modelo texto que contiene el mail en la base de datos
+
+    var nombre = req.body.nombre;
+    var email = req.body.email;
+    var asunto = req.body.asunto;
+    var mensaje = req.body.mensj;
+
+    var transporter = nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+            user:'mfrattibritos@gmail.com',
+            pass:'43842039'
+        }
+    });
+    var mailOptions = {
+        form:email,
+        to:'eticaemergente@gmail.com',
+        subject:asunto,
+        text: `Nombre: ${nombre} \n Correo: ${email} \n ${mensaje}`
+    }
+    transporter.sendMail(mailOptions,function(err,info){
+        if(err) {
+            console.log(err);
+        }
+        else{
+            console.log('Mensaje enviado: ',info.response);
+        }
+    });
+});
 module.exports = router;
