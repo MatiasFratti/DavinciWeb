@@ -504,7 +504,7 @@ dl,
 form,
 .video-container,
 .cl-custom-select {
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 }
 
 /* ------------------------------------------------------------------- 
@@ -688,7 +688,7 @@ select {
 }
 
 textarea {
-  min-height: 25rem;
+  min-height: 19rem;
 }
 
 input[type="email"]:focus,
@@ -1257,7 +1257,7 @@ input::-moz-focus-inner {
   text-transform: uppercase;
   letter-spacing: 0.25rem;
   color: #007bff;
-  margin-top: 0;
+  margin-top: 2%;
   margin-bottom: 2.1rem;
 }
 .subhead::before {

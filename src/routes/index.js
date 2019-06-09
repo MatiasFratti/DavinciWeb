@@ -37,9 +37,8 @@ router.get('/',async(req,res,next)=>{
         fecha:_fecha,
         ip:_ip
     }
-
     Informe.create({visitas:modelInfo.visitas,fecha:modelInfo.fecha,ip:modelInfo.ip},function(err){
-        (err) ? console.log(err) : console.log("Registro guardado")
+        (err) ? console.log(err) : console.log("Registro guardado, visita: ",modelInfo.visitas)
     })
     console.log( ip.address() );
     res.render('layout/main',{
@@ -153,19 +152,16 @@ router.get('/',async(req,res,next)=>{
         img_port66_cat:imgPort[11].cat,
         img_port66_proj: imgPort[11].projLink,
         img_port66_desc: imgPort[11].description
-    });
-    
+    });   
 });
 router.post('/Actualizar',async(req,res)=>{
     console.log(req.body.text,req.body.code);
     new Textos();
     const txtt = await Textos.find({code:req.body.code});
     console.log((txtt[0]._id),req.body.text);
-    
-    
+     
     await Textos.update({_id:(txtt[0]._id)},{$set:{text:req.body.text}});
-    
-    
+      
     res.render('admin');
 });
 router.get('/login_admin',(req,res)=>{
@@ -177,8 +173,7 @@ router.get('/login_admin',(req,res)=>{
         res.render('login',{
             title:'Inicia sesión'
         });
-    }
-    
+    }   
 });
 router.get('/admin',async (req,res)=>{
     var msj = '';
@@ -202,8 +197,8 @@ router.get('/admin',async (req,res)=>{
         const opacity = await Opacity.find();
         
         new Informe()
-        var informe = await Informe.findOne().sort({fecha:-1}).limit(1);
-        // console.log(informe);
+        var informe = await Informe.find();
+         console.log("nro: ",informe.length);
         if(image[0]!=null){
              head_img = image[0]._id+"."+image[0].extension;
              console.log(head_img);
@@ -212,7 +207,7 @@ router.get('/admin',async (req,res)=>{
                 err: _err,
                 head: head_img,
                 opacity:opacity[0].opacity,
-                nro_visitas: informe.visitas
+                nro_visitas: informe.length
                 
             });
         }
@@ -435,7 +430,7 @@ router.get('/informe',async function(req,res,next){
     }];
     for(var i=0; i<informe.length; i++){
         info.push(informe[i].visitas,informe[i].fecha);
-        console.log(informe[i].fecha);
+        
     }
     return res.json(info);
 });
@@ -458,14 +453,15 @@ router.post('/sendMail', async function(req,res,next){
         form:email,
         to:'eticaemergente@gmail.com',
         subject:asunto,
-        text: `Nombre: ${nombre} \n Correo: ${email} \n ${mensaje}`
+        text: `Nombre: ${nombre} \nCorreo: ${email} \n${mensaje}`
     }
-    transporter.sendMail(mailOptions,function(err,info){
+    await transporter.sendMail(mailOptions,function(err,info){
         if(err) {
             console.log(err);
         }
         else{
             console.log('Mensaje enviado: ',info.response);
+            res.json("Mensaje enviado");
         }
     });
 });

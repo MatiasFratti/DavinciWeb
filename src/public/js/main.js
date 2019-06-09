@@ -21,18 +21,39 @@
             console.log("No se pudo modificar la opacidad "," Status: ", status, " error: ",error);
         }
     });
-
+    var nombre = $('#nombre');
+    var email = $('#mc-email');
+    var asunto = $('#asunto');
+    var mensj = $('#mensj');
+    nombre.focusin(function(){
+        $(".subscribe-message").text("");
+    });
+    email.focusin(function(){
+        $(".subscribe-message").text("");
+    });
+    mensj.focusin(function(){
+        $(".subscribe-message").text("");
+    });
     $('#send').click(function(e){
-        var nombre = $('#nombre');
-        var email = $('#mc-email');
-        var asunto = $('#asunto');
-        var mensj = $('#mensj')
+        
         e.preventDefault();
-        $.post('http://localhost:3200/sendMail',{nombre:nombre.val(),email:email.val(),asunto:asunto.val(),mensj:mensj.val()},
-            function(data,status){
-                console.log("Status: ",status);
-            }
-        );
+        if(nombre.val()!="" && email.val()!="" && mensj.val()!=""){
+            $.post('http://localhost:3200/sendMail',{nombre:nombre.val(),email:email.val(),asunto:asunto.val(),mensj:mensj.val()},
+                function(data,status){
+                    console.log("Status: ",status);
+                   
+                }
+            );
+            nombre.val("");
+            email.val("");
+            asunto.val("");
+            mensj.val("");
+            $(".subscribe-message").text("Mensaje enviado, muchas gracias!!");
+        }
+        else{
+            $(".subscribe-message").text("Debes completar los campos obligatoros");
+        }
+        
     });   
     var cfg = {
         scrollDuration : 800, // smoothscroll duration
